@@ -12,3 +12,15 @@ updating the repository you can use git add filename.type to stage one file or g
 after doing this add a git commit -m "info of what you changed"
 
 then to push you can type git push origin main. this will push to the branch main or whatever you choose to type.
+
+
+
+
+How to get into server
+
+IP 98.82.62.60
+
+ssh -i production ubuntu@98.82.62.60 be in the proper path 
+
+https doesnt work use http
+
