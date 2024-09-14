@@ -6,10 +6,10 @@ Disc Golf is a small sport, and an even smaller collegiate sport. As such the BY
 
 ## Design
 Users will input scores
-![Score Diagram](./images/Mainscreen.png)
+![Score Diagram](./Images/Mainscreen.png)
 
 Users can see leaderboard
-![Leader Diagram](./images/Leaderboard.png)
+![Leader Diagram](./Images/Leaderboard.png)
 
 Sequence Diagram on how users interact
-![Score Diagram](./images/Sequence.png)
+![Score Diagram](./Images/Sequence.png)
