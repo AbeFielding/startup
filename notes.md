@@ -1,3 +1,6 @@
+When working with git, commit often. Keep a record of what you have done. verify you have the latest with pull. code test code. commit and push changes
+
+
 Download a repository with git clone example url
 
 type null filename.type will create an empty file
