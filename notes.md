@@ -20,7 +20,9 @@ How to get into server
 
 IP 98.82.62.60
 
-ssh -i production ubuntu@98.82.62.60 be in the proper path 
+ssh -i production.pem ubuntu@provodiscgolfscorecard.click
 
-https doesnt work use http
+./deployFiles.sh -k "C:/Users/Abe/Documents/CS260/Key Pair/production.pem" -h provodiscgolfscorecard.click -s simon
+
+ubuntu uses / not \
 
