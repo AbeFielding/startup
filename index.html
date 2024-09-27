@@ -2,52 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Tell browsers not to scale the viewport automatically -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon HTML</title>
+    <title>BYU DG Stats</title>
     <link rel="icon" href="favicon.ico" />
   </head>
   <body>
     <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
-      <h1>Simon Clement<sup>&reg;</sup></h1>
+      <h1>BYU DG Stats</h1>
 
       <!-- Navigation elements -->
       <nav>
-        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu>
           <li><a href="index.html">Home</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
+          <li><a href="enter-scores.html">Enter Scores</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
           <li><a href="about.html">About</a></li>
         </menu>
       </nav>
-
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
       <hr />
     </header>
 
     <main>
-      <h1>Welcome to Simon</h1>
-      <form method="get" action="play.html">
+      <!-- Placeholder for authentication -->
+      <h2>Login to Your Account</h2>
+      <form method="post" action="/login">
         <div>
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
         </div>
         <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="password" required />
         </div>
         <button type="submit">Login</button>
-        <button type="submit">Create</button>
+        <button type="button" onclick="window.location.href='register.html'">Create Account</button>
       </form>
+
+      <!-- Placeholder for application data -->
+      <h2>Course Information</h2>
+      <p>Select a course to begin tracking your scores.</p>
+      <select>
+        <option value="course1">Utah State Hospital</option>
+        <option value="course2">Jolley's Ranch</option>
+      </select>
     </main>
 
     <footer>
       <hr />
-      <span class="text-reset">Author Name(s)</span>
+      <span>Created by Abe Field</span>
       <br />
-      <a href="https://github.com/webprogramming260/simon-html">GitHub</a>
+      <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
     </footer>
   </body>
 </html>
