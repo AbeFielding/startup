@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYU DG Stats</title>
+    <link rel="icon" href="favicon.ico" />
+    <script>
+        function updateBirdieTitle() {
+            const courseSelect = document.getElementById("course");
+            const selectedCourse = courseSelect.options[courseSelect.selectedIndex].text;
+            const birdieTitle = document.getElementById("birdie-title");
+            birdieTitle.textContent = "Birdie Percentage for " + selectedCourse;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>BYU DG Stats</h1>
+        <nav>
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="stats.html">Stats</a></li>
+            </menu>
+        </nav>
+        <hr />
+    </header>
+
+    <main>
+        <h2>Player Stats</h2>
+        
+        <!-- Player Selection -->
+        <div>
+            <label for="player">Select Player:</label>
+            <select id="player">
+                <option value="player1">Player 1</option>
+                <!-- More players can be added here -->
+            </select>
+        </div>
+
+        <!-- Course Selection -->
+        <div>
+            <label for="course">Select Course:</label>
+            <select id="course" onchange="updateBirdieTitle()">
+                <option value="course1">Utah State Hospital</option>
+                <option value="course2">Jolley's Ranch</option>
+                <option value="course3">Dragonfly</option>
+                <option value="course4">Art Dye</option>
+            </select>
+        </div>
+
+        <!-- Birdie Percentage Title -->
+        <h3 id="birdie-title">Birdie Percentage for Utah State Hospital</h3>
+        
+        <!-- Birdie Percentage Table -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Hole</th>
+                    <th>Birdie Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Create a row for each hole -->
+                <tr>
+                    <td>Hole 1</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 2</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 3</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 4</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 5</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 6</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 7</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 8</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 9</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 10</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 11</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 12</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 13</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 14</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 15</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 16</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 17</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Hole 18</td>
+                    <td>0%</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <hr />
+        <span>Created by Abe Field</span>
+        <br />
+        <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+    </footer>
+</body>
+</html>
