@@ -44,6 +44,7 @@ How I am going to use the required technologies:
 - **WebSocket**: Enables real-time communication for live score updates and leaderboard changes, ensuring that all users receive immediate updates.
 - **HTTPS**: Secures data transmission between the client and server, protecting user credentials and sensitive information.
 **External Web Service**:
-  - **Weather API**: Uses the [OpenWeatherMap API](https://openweathermap.org/api) to fetch weather data for courses, allowing users to view current weather conditions for their practice sessions.
-    - **Endpoint**: `https://api.openweathermap.org/data/2.5/weather`
-    - **Function**: `getWeather` - Retrieves current weather data based on the course location.
+  - **Weather API**: Uses the [WeatherAPI](http://weatherapi.com) to fetch weather data for courses, allowing users to view current weather conditions for their practice sessions.
+    - **Endpoint**: `http://api.weatherapi.com/v1/current.json`
+    - **Function**: `fetchWeather` - Retrieves current weather data based on the course location.
+

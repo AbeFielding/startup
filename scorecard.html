@@ -3,39 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BYU DG Scorecard</title>
+    <title>Scorecard - BYU DG Stats</title>
     <link rel="icon" href="favicon.ico" />
-    <script>
-        function updateDistances() {
-            const courseSelect = document.getElementById("course");
-            const selectedCourse = courseSelect.value;
-            const distanceCells = document.querySelectorAll(".distance");
-
-            // Set distances based on selected course
-            let distances;
-            switch (selectedCourse) {
-                case "course1":
-                    distances = Array(18).fill(0); // Hospital
-                    break;
-                case "course2":
-                    distances = Array(18).fill(1); // Jolley's Ranch
-                    break;
-                case "course3":
-                    distances = Array(18).fill(2); // Dragonfly
-                    break;
-                case "course4":
-                    distances = Array(18).fill(3); // Art Dye
-                    break;
-                default:
-                    distances = Array(18).fill(0);
-            }
-
-            // Update the distance cells
-            distanceCells.forEach((cell, index) => {
-                cell.textContent = distances[index] + " ft";
-            });
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-    </script>
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -54,43 +41,140 @@
     </header>
 
     <main>
-        <h2>Scorecard</h2>
+        <h2>Select Course</h2>
+        <select id="course" onchange="onCourseChange(this)">
+            <option value="Hospital">Utah State Hospital</option>
+            <option value="Jolley's">Jolley's Ranch</option>
+            <option value="Dragonfly">Dragonfly</option>
+            <option value="Art Dye">Art Dye</option>
+        </select>
 
-        <!-- Course Selection -->
-        <div>
-            <label for="course">Select Course:</label>
-            <select id="course" onchange="updateDistances()">
-                <option value="course1">Utah State Hospital</option>
-                <option value="course2">Jolley's Ranch</option>
-                <option value="course3">Dragonfly</option>
-                <option value="course4">Art Dye</option>
-            </select>
+        <div id="weather-info">
+            <h2>Current Weather</h2>
+            <p id="temperature">Temperature: 0 °C</p>
+            <p id="wind">Wind: 0 mph</p>
         </div>
 
-        <!-- Scorecard Table -->
-        <table border="1">
+        <h2>Scorecard</h2>
+        <table>
             <thead>
                 <tr>
                     <th>Hole</th>
-                    <th>Distance</th>
+                    <th>Distance (ft)</th>
                     <th>Par</th>
                     <th>Your Score</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Create a row for each hole -->
-                <script>
-                    for (let i = 1; i <= 18; i++) {
-                        document.write(`
-                            <tr>
-                                <td>Hole ${i}</td>
-                                <td class="distance">0 ft</td>
-                                <td>3</td>
-                                <td><input type="number" placeholder="Score" min="0" /></td>
-                            </tr>
-                        `);
-                    }
-                </script>
+                <!-- 18 holes -->
+                <tr>
+                    <td>1</td>
+                    <td id="distance-1">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td id="distance-2">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td id="distance-3">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td id="distance-4">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td id="distance-5">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td id="distance-6">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td id="distance-7">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td id="distance-8">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td id="distance-9">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td id="distance-10">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td id="distance-11">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td id="distance-12">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td id="distance-13">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td id="distance-14">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td id="distance-15">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td id="distance-16">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td id="distance-17">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td id="distance-18">300</td>
+                    <td>3</td>
+                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                </tr>
             </tbody>
         </table>
     </main>
@@ -101,5 +185,47 @@
         <br />
         <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
     </footer>
+
+    <script>
+        const weatherKey = '3837f7f4bd1f4e4bb7e02213242809';
+        const courses = {
+            "Hospital": "Provo, Utah",
+            "Jolley's": "Springville, Utah",
+            "Dragonfly": "Lehi, Utah",
+            "Art Dye": "American Fork, Utah"
+        };
+
+        function fetchWeather(course) {
+            const location = courses[course];
+            const url = `http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${location}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('temperature').innerText = `Temperature: ${data.current.temp_c} °C`;
+                    document.getElementById('wind').innerText = `Wind: ${data.current.wind_mph} mph`;
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+        }
+
+        function onCourseChange(selectElement) {
+            const selectedCourse = selectElement.value;
+            fetchWeather(selectedCourse);
+            updateDistances(selectedCourse);
+        }
+
+        function updateDistances(course) {
+            const distances = {
+                "Hospital": 300,
+                "Jolley's": 300,
+                "Dragonfly": 300,
+                "Art Dye": 300
+            };
+
+            for (let i = 1; i <= 18; i++) {
+                document.getElementById(`distance-${i}`).innerText = distances[course];
+            }
+        }
+    </script>
 </body>
 </html>
