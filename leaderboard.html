@@ -1,127 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leaderboard - BYU DG Stats</title>
     <link rel="icon" href="favicon.ico" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-      nav {
-        margin-left: 20px;
-      }
+        nav {
+            margin-left: 20px;
+        }
 
-      menu {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-      }
+        menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
 
-      li {
-        display: inline;
-      }
+        li {
+            display: inline;
+        }
 
-      main {
-        padding: 20px;
-      }
+        main {
+            padding: 20px;
+        }
 
-      footer {
-        text-align: center;
-        padding: 20px 0;
-      }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-      table, th, td {
-        border: 1px solid black;
-      }
+        table, th, td {
+            border: 1px solid black;
+        }
 
-      th, td {
-        padding: 10px;
-        text-align: center;
-      }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
 
-      select {
-        padding: 5px;
-        margin-bottom: 20px;
-      }
+        select {
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+
+        .placeholder {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            text-align: center;
+        }
     </style>
-  </head>
-  <header>
-    <!-- Logo Image -->
-    <img src="images/BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
-    
-    <h1>BYU DG Scorecard</h1>
+</head>
+<body>
+    <header>
+        <!-- Logo Image -->
+        <img src="images/BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
+        <h1>BYU DG Scorecard</h1>
 
-      <!-- Navigation elements -->
-      <nav>
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="stats.html">Stats</a></li>
-          <li><a href="scorecard.html">Start a round</a></li>
-        </menu>
-      </nav>
+        <!-- Navigation elements -->
+        <nav>
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="scorecard.html">Start a round</a></li>
+            </menu>
+        </nav>
     </header>
 
     <hr />
 
     <main>
-      <!-- Course selection -->
-      <h2>Select Course to View Leaderboard</h2>
-      <select>
-        <option value="course1">Utah State Hospital</option>
-        <option value="course2">Jolley's Ranch</option>
-        <option value="course3">Dragonfly</option>
-        <option value="course4">Art Dye</option>
-      </select>
+        <!-- Course selection -->
+        <h2>Select Course to View Leaderboard</h2>
+        <select>
+            <option value="course1">Utah State Hospital</option>
+            <option value="course2">Jolley's Ranch</option>
+            <option value="course3">Dragonfly</option>
+            <option value="course4">Art Dye</option>
+        </select>
 
-      <!-- Leaderboard table with placeholder text -->
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Player 1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Player 2</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Player 3</td>
-            <td>0</td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- Placeholder for Real-Time Communication -->
+        <div class="placeholder" id="real-time-placeholder">
+            <h3>Real-Time Player Updates</h3>
+            <p>This section will show current players, their scores, and the hole and course they are on.</p>
+        </div>
+
+        <!-- Leaderboard table with placeholder text -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Player 1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Player 2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Player 3</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <footer>
-      <hr />
-      <span>Created by Abe Field</span>
-      <br />
-      <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+        <hr />
+        <span>Created by Abe Field</span>
+        <br />
+        <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
     </footer>
-  </body>
+</body>
 </html>
