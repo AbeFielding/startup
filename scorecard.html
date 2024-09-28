@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYU DG Scorecard</title>
+    <link rel="icon" href="favicon.ico" />
+    <script>
+        function updateDistances() {
+            const courseSelect = document.getElementById("course");
+            const selectedCourse = courseSelect.value;
+            const distanceCells = document.querySelectorAll(".distance");
+
+            // Set distances based on selected course
+            let distances;
+            switch (selectedCourse) {
+                case "course1":
+                    distances = Array(18).fill(0); // Hospital
+                    break;
+                case "course2":
+                    distances = Array(18).fill(1); // Jolley's Ranch
+                    break;
+                case "course3":
+                    distances = Array(18).fill(2); // Dragonfly
+                    break;
+                case "course4":
+                    distances = Array(18).fill(3); // Art Dye
+                    break;
+                default:
+                    distances = Array(18).fill(0);
+            }
+
+            // Update the distance cells
+            distanceCells.forEach((cell, index) => {
+                cell.textContent = distances[index] + " ft";
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Logo Image -->
+        <img src="images/BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
+        
+        <h1>BYU DG Scorecard</h1>
+        <nav>
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="stats.html">Stats</a></li>
+            </menu>
+        </nav>
+        <hr />
+    </header>
+
+    <main>
+        <h2>Scorecard</h2>
+
+        <!-- Course Selection -->
+        <div>
+            <label for="course">Select Course:</label>
+            <select id="course" onchange="updateDistances()">
+                <option value="course1">Utah State Hospital</option>
+                <option value="course2">Jolley's Ranch</option>
+                <option value="course3">Dragonfly</option>
+                <option value="course4">Art Dye</option>
+            </select>
+        </div>
+
+        <!-- Scorecard Table -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Hole</th>
+                    <th>Distance</th>
+                    <th>Par</th>
+                    <th>Your Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Create a row for each hole -->
+                <script>
+                    for (let i = 1; i <= 18; i++) {
+                        document.write(`
+                            <tr>
+                                <td>Hole ${i}</td>
+                                <td class="distance">0 ft</td>
+                                <td>3</td>
+                                <td><input type="number" placeholder="Score" min="0" /></td>
+                            </tr>
+                        `);
+                    }
+                </script>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <hr />
+        <span>Created by Abe Field</span>
+        <br />
+        <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+    </footer>
+</body>
+</html>
