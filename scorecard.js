@@ -23,7 +23,7 @@ async function fetchWeather(course) {
     }
 
     const apiKey = '3837f7f4bd1f4e4bb7e02213242809'; // Your API key
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
 
     try {
         const response = await fetch(url);
