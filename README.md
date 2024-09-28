@@ -47,4 +47,14 @@ How I am going to use the required technologies:
   - **Weather API**: Uses the [WeatherAPI](http://weatherapi.com) to fetch weather data for courses, allowing users to view current weather conditions for their practice sessions.
     - **Endpoint**: `http://api.weatherapi.com/v1/current.json`
     - **Function**: `fetchWeather` - Retrieves current weather data based on the course location.
+## HTML deliverable
 
+For this deliverable I created the structure of my site using HTML
+
+- [x] **HTML pages** - Four HTML pages representing a main page, keeping score, stats, and a leaderboard
+- [x] **Links** - Each page contains navigation links to allow easy access between the home page, leaderboard, stats, and scorecard.
+- [x] **Text** - Each page includes relevant headings and descriptive text for user guidance.
+- [x] **Images** - Team logo is included on each page. Course map images to follow.
+- [x] **Login Form/Database** - The main page contains a login input placeholder. The score card page shows a potential way to input scores.
+- [x] **Real-Time Communication** - The leaderboard includes placeholders for displaying real-time player scores and information.
+- [x] **Weather API Integration** - Decide to integrate the weather API now as the idea of doing it later stressed me. 
