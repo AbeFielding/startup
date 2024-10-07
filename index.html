@@ -5,16 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BYU DG Scorecard</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="style.css" /> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'slideimg1.jpg',
+            'slideimg2.jpg',
+            'slideimg3.jpg',
+            'slideimg4.jpg',
+            'slideimg5.jpg',
+            
+        ];
+
+        function changeImage() {
+            const imageElement = document.getElementById("slideshow-image");
+            imageElement.src = images[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        window.onload = function() {
+            changeImage(); 
+            setInterval(changeImage, 30000); // Change image every 30 seconds
+        };
+    </script>
 </head>
 <body>
     <header>
-        <!-- Logo Image -->
-        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 100px; height: auto; margin-right: 15px; display: inline-block;" />
-        
-        <h1 style="display: inline-block; margin-right: 15px;">BYU Disc Golf Scores and Stats</h1>
-
-        <!-- Navigation elements -->
+        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
+        <h1>BYU Disc Golf Scores and Stats</h1>
         <nav>
             <menu>
                 <li><a href="index.html">Home</a></li>
@@ -27,16 +45,17 @@
     </header>
 
     <main>
-        <h2>Welcome to the BYU Disc Golf Scorecard</h2>
-        <p>Your stats and scores all in one place.</p>
-        <!-- Add more content here as needed -->
+        <!-- Slideshow for cycling through images -->
+        <div class="slideshow">
+            <img id="slideshow-image" src="" alt="Slideshow" style="max-width: 100%; height: auto;" />
+        </div>
     </main>
 
     <footer>
         <hr />
         <span>Created by Abe Field</span>
         <br />
-        <a href="https://github.com/AbeFielding/startup" style="color: white;">GitHub Repository</a>
+        <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
     </footer>
 </body>
 </html>
