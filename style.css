@@ -1,0 +1,88 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif; /* Set a default font */
+    line-height: 1.6; /* Improve line spacing */
+}
+
+/* Header Styling */
+header {
+    background-color: #002E5D; /* PMS 648 C Navy */
+    color: white; /* White text color for contrast */
+    padding: 20px; /* Space around the content */
+    text-align: left; /* Align text to the left */
+}
+
+/* Logo Image */
+header img {
+    max-width: 100px; /* Adjust logo size */
+    height: auto; /* Maintain aspect ratio */
+    display: inline-block; /* Align with text */
+    margin-right: 15px; /* Space between logo and text */
+}
+
+/* Main Header Title */
+header h1 {
+    display: inline-block; /* Align with logo */
+    margin-right: 15px; /* Space between title and navigation */
+}
+
+/* Navigation Styling */
+nav {
+    margin-top: 10px; /* Space between header title and navigation */
+}
+
+nav menu {
+    list-style: none; /* Remove default list styling */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: flex-start; /* Align navigation items to the left */
+}
+
+nav menu li {
+    margin: 0 15px; /* Space between navigation items */
+}
+
+nav menu li a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+nav menu li a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+/* Main Content Styling */
+main {
+    padding: 20px; /* Space around the main content */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center; /* Center footer text */
+    padding: 10px 0; /* Space above and below footer text */
+    background-color: #002E5D; /* Same navy background */
+    color: white; /* White text for contrast */
+}
+
+/* Table Styling */
+table {
+    width: 100%; /* Full width for tables */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+th, td {
+    padding: 10px; /* Space inside table cells */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ccc; /* Light gray border for table cells */
+}
+
+th {
+    background-color: #004080; /* Darker shade for table headers */
+    color: white; /* White text in headers */
+}

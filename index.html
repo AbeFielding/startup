@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BYU DG Stats</title>
+    <title>BYU DG Scorecard</title>
     <link rel="icon" href="favicon.ico" />
-  </head>
-  <header>
-    <!-- Logo Image -->
-    <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
-    
-    <h1>BYU DG Stats</h1>
+    <link rel="stylesheet" href="style.css" /> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <!-- Logo Image -->
+        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 100px; height: auto; margin-right: 15px; display: inline-block;" />
+        
+        <h1 style="display: inline-block; margin-right: 15px;">BYU Disc Golf Scores and Stats</h1>
 
-      <!-- Navigation elements -->
-      <nav>
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="leaderboard.html">Leaderboard</a></li>
-          <li><a href="stats.html">Stats</a></li>
-          <li><a href="scorecard.html">Start a round</a></li>
-        </menu>
-      </nav>
-      <hr />
+        <!-- Navigation elements -->
+        <nav>
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="scorecard.html">Start a round</a></li>
+            </menu>
+        </nav>
+        <hr />
     </header>
+
     <main>
-      <!-- authentication -->
-      <h2>Login to Your Account</h2>
-      <form method="post" action="/login">
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder="password" required />
-        </div>
-        <button type="submit">Login</button>
-        <button type="button" onclick="window.location.href='register.html'">Create Account</button>
-      </form>
+        <h2>Welcome to the BYU Disc Golf Scorecard</h2>
+        <p>Your stats and scores all in one place.</p>
+        <!-- Add more content here as needed -->
+    </main>
+
     <footer>
-      <hr />
-      <span>Created by Abe Field</span>
-      <br />
-      <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+        <hr />
+        <span>Created by Abe Field</span>
+        <br />
+        <a href="https://github.com/AbeFielding/startup" style="color: white;">GitHub Repository</a>
     </footer>
-  </body>
+</body>
 </html>
