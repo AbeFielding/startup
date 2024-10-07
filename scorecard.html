@@ -5,40 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scorecard - BYU DG Stats</title>
     <link rel="icon" href="favicon.ico" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        table {
-            margin: auto;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" /> <!-- Link to your existing CSS file -->
 </head>
 <body>
     <header>
-        <!-- Logo Image -->
         <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
-        
-        <h1>BYU DG Scorecard</h1>
+        <h1>BYU Disc Golf Scores and Stats</h1>
         <nav>
             <menu>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="leaderboard.html">Leaderboard</a></li>
                 <li><a href="stats.html">Stats</a></li>
+                <li><a href="scorecard.html">Start a round</a></li>
             </menu>
         </nav>
         <hr />
     </header>
+
+    <hr />
 
     <main>
         <h2>Select Course</h2>
@@ -67,114 +51,17 @@
             </thead>
             <tbody>
                 <!-- 18 holes -->
-                <tr>
-                    <td>1</td>
-                    <td id="distance-1">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td id="distance-2">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td id="distance-3">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td id="distance-4">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td id="distance-5">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td id="distance-6">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td id="distance-7">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td id="distance-8">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td id="distance-9">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td id="distance-10">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td id="distance-11">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td id="distance-12">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td id="distance-13">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td id="distance-14">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td id="distance-15">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td id="distance-16">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td id="distance-17">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
-                <tr>
-                    <td>18</td>
-                    <td id="distance-18">300</td>
-                    <td>3</td>
-                    <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                </tr>
+                <script>
+                    const holes = [...Array(18).keys()].map(i => `
+                        <tr>
+                            <td>${i + 1}</td>
+                            <td id="distance-${i + 1}">300</td>
+                            <td>3</td>
+                            <td><input type="number" min="0" max="10" placeholder="Score" /></td>
+                        </tr>
+                    `).join('');
+                    document.write(holes);
+                </script>
             </tbody>
         </table>
     </main>
