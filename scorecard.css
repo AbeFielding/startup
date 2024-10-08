@@ -1,0 +1,107 @@
+/* Global reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background-color: #002E5D;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+nav menu li {
+    margin-right: 10px;
+}
+
+nav menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Scorecard main section */
+.scorecard-main {
+    height: calc(100vh - 60px); /* Full viewport minus header height */
+    width: 100%;
+    margin-top: 60px; /* Offset to accommodate the fixed header */
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.5); /* Slightly opaque grey */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Player scores section */
+.player-scores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for Player, Holes Played, and Score */
+    gap: 10px;
+    margin-bottom: 20px; /* Space before the bar */
+}
+
+.player-scores div {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Thin black bar */
+.black-bar {
+    height: 2px;
+    background-color: black;
+    width: 100%;
+    margin-bottom: 20px; /* Space below the black bar */
+}
+
+/* Button styles */
+.score-btn {
+    padding: 15px 30px;
+    background-color: #002E5D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Center the button */
+}
+
+.score-btn:hover {
+    background-color: #004494;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #002E5D;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    max-width: 50px;
+    height: auto;
+    margin-left: auto;
+}
