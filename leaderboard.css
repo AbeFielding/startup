@@ -1,28 +1,28 @@
-
+/* Global styles for all pages */
 html, body {
     margin: 0;
-    height: 100%;
+    height: 100%; /* Allow the body to take full height of the viewport */
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
 body {
-    display: flex; 
-    flex-direction: column; 
+    display: flex; /* Use flexbox for body */
+    flex-direction: column; /* Stack header, main, and footer */
 }
 
 header {
-    background-color: #002E5D;
+    background-color: #002E5D; /* Navy blue */
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    z-index: 1000; 
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 nav ul {
@@ -41,68 +41,126 @@ nav ul li a {
 }
 
 .leaderboard-main {
-    flex: 1;
-    padding: 20px;
-    margin-top: 60px; 
-    margin-bottom: 40px; 
-    background-image: url('Backgroundimg.png');
+    flex: 1; /* Allow the main content to grow and take available space */
+    padding: 20px; /* Add padding */
+    margin-top: 60px; /* Adjust for header height */
+    margin-bottom: 40px; /* Adjust for footer height */
+    background-image: url('Backgroundimg.png'); /* Your background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Use flex for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.leaderboard {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the leaderboard */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 300px; /* Fixed width */
+    text-align: left; /* Align text to the left */
+    margin-top: 20px; /* Space from the top */
+}
+
+.leaderboard h2 {
+    text-align: center; /* Center the title */
+    margin: 0 0 15px 0; /* Space below the title */
+}
+
+.leaderboard ol {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.leaderboard li {
+    display: flex; /* Use flex for layout */
+    justify-content: space-between; /* Space between elements */
+    margin: 10px 0; /* Space between leaderboard items */
+}
+
+.place {
+    font-weight: bold; /* Bold text for place */
+}
+
+/* Gold, Silver, and Bronze styles */
+.leaderboard li:nth-child(1) .place {
+    color: gold; /* Gold for 1st place */
+}
+
+.leaderboard li:nth-child(2) .place {
+    color: silver; /* Silver for 2nd place */
+}
+
+.leaderboard li:nth-child(3) .place {
+    color: #cd7f32; /* Bronze for 3rd place (copper color) */
+}
+
+.name {
+    flex-grow: 1; /* Allow name to grow */
+    text-align: center; /* Center the name */
+}
+
+.score {
+    font-style: italic; /* Italicize the score */
 }
 
 footer {
-    position: fixed; 
-    bottom: 0;
-    left: 0; 
-    right: 0; 
-    background-color: #002E5D;
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    background-color: #002E5D; /* Navy blue */
     color: white;
     text-align: center;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px; /* Add padding for footer content */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between text and logo */
+    align-items: center; /* Center vertically */
 }
 
 .footer-logo {
-    max-width: 40px;
-    height: auto;
+    max-width: 40px; /* Set a small size for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; /* Push logo to the right */
 }
 
-
+/* Media queries for responsiveness */
 @media (max-width: 600px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; /* Stack header elements on small screens */
+        align-items: flex-start; /* Align items to the left */
     }
 
     nav ul {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: row; /* Ensure menu items are in a row */
+        justify-content: center; /* Center the menu items */
     }
 
     nav ul li {
-        margin-right: 10px;
+        margin-right: 10px; /* Space between menu items */
     }
 
     nav ul li:last-child {
-        margin-right: 0;
+        margin-right: 0; /* Remove margin from the last item */
     }
 
     header h1 {
-        font-size: 1.5rem; 
-        display: none; 
+        font-size: 1.5rem; /* Smaller header size on mobile screens */
+        display: none; /* Optional: hides the header text on very small screens */
     }
 
     header img {
-        display: none; 
+        display: none; /* Hide logo on small screens */
     }
 
     .leaderboard-main {
-        padding: 10px;
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .leaderboard {
+        width: 100%; /* Full width on small screens */
+        padding: 10px; /* Reduce padding */
     }
 }
