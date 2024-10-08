@@ -1,32 +1,22 @@
+/* Global styles for all pages */
 body {
     margin: 0; /* Remove default body margin */
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 header {
     background-color: #002E5D; /* Navy blue */
     color: white;
-    padding: 5px 5px; /* Adjust padding as needed */
+    padding: 10px; /* Adjust padding as needed */
     display: flex; /* Use flex for layout */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the left */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Align items in the center */
     position: fixed; /* Fix the header to the top */
     top: 0; /* Position it at the top */
     left: 0; /* Position it to the left */
     right: 0; /* Position it to the right */
     z-index: 1000; /* Ensure it stays above other content */
-}
-
-.header-title {
-    display: flex; /* Align logo and title */
-    align-items: center; /* Center logo and title vertically */
-    margin-bottom: 0px; /* Space between title and nav */
-}
-
-header img {
-    max-width: 50px; /* Set a small size for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Space between logo and title */
 }
 
 nav menu {
@@ -36,27 +26,12 @@ nav menu {
 }
 
 nav menu li {
-    margin-right: 5px; /* Space between menu items */
+    margin-right: 10px; /* Space between menu items */
 }
 
 nav menu li a {
     color: white; /* White text color */
     text-decoration: none; /* Remove underline */
-}
-
-footer {
-    background-color: #002E5D; /* Navy blue */
-    color: white;
-    text-align: center;
-    padding: 5px; /* Add padding for footer content */
-    position: fixed; /* Fix the footer to the bottom */
-    bottom: 0; /* Position it at the bottom */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-}
-
-footer hr {
-    margin: 0; /* Remove margin from the horizontal rule */
 }
 
 /* Main styles for other pages */
@@ -68,15 +43,16 @@ main {
     overflow: hidden; /* Hide overflow for other pages */
 }
 
+/* Footer */
 footer {
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: #002E5D; /* Navy blue */
     color: white;
     text-align: center;
     padding: 10px; /* Add padding for footer content */
-    position: fixed; /* Fix the footer to the bottom */
-    bottom: 0; /* Position it at the bottom */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between text and logo */
     align-items: center; /* Center vertically */
@@ -86,6 +62,28 @@ footer {
     max-width: 50px; /* Set a small size for the logo */
     height: auto; /* Maintain aspect ratio */
     margin-left: auto; /* Push logo to the right */
+}
+
+/* Main styles specifically for index.html */
+.index-main {
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    position: relative; /* Allow for absolutely positioning the image */
+}
+
+.index-main img {
+    object-fit: cover; /* Ensure the image covers the whole area */
+    width: 100%; /* Ensure the image takes the full width */
+    height: 100vh; /* Ensure the image takes the full viewport height */
+    position: absolute; /* Position the image absolutely to fill the space */
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left */
+    z-index: -1; /* Ensure the image is behind the header and footer */
 }
 
 /* Media queries for responsiveness */
@@ -120,9 +118,4 @@ footer {
     header img {
         display: none; /* Hide logo on small screens */
     }
-}
-
-/* General styles */
-header h1 {
-    font-size: 2.5rem; /* Adjust the size for larger screens */
 }
