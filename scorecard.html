@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scorecard - BYU DG Stats</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="style.css" /> <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
@@ -20,6 +20,41 @@
             </menu>
         </nav>
     </header>
+
+    <main class="scorecard-main">
+        <!-- Button to begin keeping score -->
+        <button class="score-btn" id="start-score-btn">Begin Keeping Score</button>
+        
+        <!-- Section for live score updates (initially hidden) -->
+        <section class="live-score" id="live-score" style="display: none;">
+            <div class="players-list">
+                <!-- Placeholder player information -->
+                <div class="player">
+                    <span class="player-name">Player 1</span>
+                    <span class="player-holes">Holes Played: 18</span>
+                    <span class="player-score">Score: -5</span>
+                </div>
+                <div class="player">
+                    <span class="player-name">Player 2</span>
+                    <span class="player-holes">Holes Played: 18</span>
+                    <span class="player-score">Score: -3</span>
+                </div>
+                <!-- More players here (total of 10) -->
+            </div>
+            <div class="score-top-bar"></div> <!-- Thin black bar below the players -->
+        </section>
+    </main>
+    
+    <script>
+        // JavaScript to toggle visibility
+        document.getElementById('start-score-btn').addEventListener('click', function() {
+            // Hide the button
+            this.style.display = 'none';
+            
+            // Show the live score section
+            document.getElementById('live-score').style.display = 'block';
+        });
+    </script>
 
     <footer>
         <span>Created by Abe Field</span>

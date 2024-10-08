@@ -34,15 +34,6 @@ nav menu li a {
     text-decoration: none; /* Remove underline */
 }
 
-/* Main styles for other pages */
-main {
-    height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Hide overflow for other pages */
-}
-
 /* Footer */
 footer {
     position: fixed; /* Fix the footer to the bottom */
@@ -85,6 +76,91 @@ footer {
     left: 0; /* Start at the left */
     z-index: -1; /* Ensure the image is behind the header and footer */
 }
+
+/* Main styles specifically for scorecard.html */
+.scorecard-main {
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    background-color: rgba(128, 128, 128, 0.5); /* Slightly opaque grey */
+    position: relative; /* Allow for absolute positioning */
+    box-sizing: border-box; /* Include padding and borders in the element's dimensions */
+}
+
+/* Button styles */
+.score-btn {
+    padding: 15px 30px; /* Button padding */
+    background-color: #002E5D; /* Navy blue background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2rem; /* Increase button text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.score-btn:hover {
+    background-color: #004494; /* Lighter blue on hover */
+}
+
+
+/* Media query for button responsiveness */
+@media (max-width: 600px) {
+    .score-btn {
+        padding: 10px 20px; /* Adjust button padding */
+        font-size: 1rem; /* Adjust button font size */
+    }
+}
+
+/* Scorecard specific layout when keeping score */
+.live-score {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; /* Full width */
+    padding: 5px 0; /* Reduced padding for less space from the header */
+}
+
+.score-top-bar {
+    width: 100vw; /* Full screen width */
+    height: 3px; /* Thin black bar */
+    background-color: black;
+    margin-top: 5px; /* Further reduced space between players and the black bar */
+}
+
+.players-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for player info */
+    gap: 2px; /* Decreased gap between players */
+    width: 100%;
+    max-width: 800px; /* Limit width */
+}
+
+.player {
+    background-color: rgba(0, 0, 0, 0.1); /* Light grey background */
+    padding: 2px; /* Reduced padding for a tighter layout */
+    border-radius: 5px; /* Slightly rounded corners */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem; /* Small text size for compact display */
+}
+
+.player span {
+    margin-right: 2px; /* Reduced space between player info */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .players-list {
+        grid-template-columns: 1fr; /* Make it one column on small screens */
+    }
+}
+
 
 /* Media queries for responsiveness */
 @media (max-width: 600px) {
