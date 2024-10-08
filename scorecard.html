@@ -84,6 +84,21 @@
     
             <!-- Horizontal bar below player scores -->
             <div class="horizontal-bar"></div>
+            <div class="scoring-options">
+                <label for="course-select">Select Course:</label>
+                <select id="course-select">
+                    <option value="jolleys-ranch">Jolley's Ranch</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="hospital-golds">Hospital Golds</option>
+                    <option value="art-dye">Art Dye</option>
+                    <option value="dragonfly">Dragonfly</option>
+                </select>
+        
+                <label for="starting-hole">Starting Hole:</label>
+                <input type="number" id="starting-hole" min="1" max="18" placeholder="1-18" />
+        
+                <button class="score-btn" id="begin-play-btn">Begin Play</button>
+            </div>
         </section>
     </main>
     
