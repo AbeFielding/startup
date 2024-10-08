@@ -1,0 +1,118 @@
+body {
+    margin: 0; /* Remove default body margin */
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+header {
+    background-color: #002E5D; /* Navy blue */
+    color: white;
+    padding: 10px; /* Adjust padding as needed */
+    display: flex; /* Use flex for layout */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Align items in the center */
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+nav menu {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display navigation items inline */
+}
+
+nav menu li {
+    margin-right: 10px; /* Space between menu items */
+}
+
+nav menu li a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+}
+
+footer {
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #002E5D; /* Navy blue */
+    color: white;
+    text-align: center;
+    padding: 0px; /* Add padding for footer content */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between text and logo */
+    align-items: center; /* Center vertically */
+}
+
+.footer-logo {
+    max-width: 40px; /* Set a small size for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; /* Push logo to the right */
+}
+
+/* Main styles specifically for index.html */
+.index-main {
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    position: relative; /* Allow for absolutely positioning the image */
+}
+
+.index-main img {
+    object-fit: cover; /* Ensure the image covers the whole area */
+    width: 100%; /* Ensure the image takes the full width */
+    height: 100vh; /* Ensure the image takes the full viewport height */
+    position: absolute; /* Position the image absolutely to fill the space */
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left */
+    z-index: -1; /* Ensure the image is behind the header and footer */
+}
+
+/* Media query for button responsiveness */
+@media (max-width: 600px) {
+    .score-btn {
+        padding: 10px 20px; /* Adjust button padding */
+        font-size: 1rem; /* Adjust button font size */
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack header elements on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    nav menu {
+        flex-direction: row; /* Ensure menu items are in a row */
+        flex-wrap: nowrap; /* Prevent wrapping to the next line */
+        justify-content: center; /* Center the menu items */
+        padding: 0; /* Removes default padding */
+        margin: 0; /* Removes default margin */
+    }
+
+    nav menu li {
+        margin-right: 10px; /* Space between menu items */
+        list-style-type: none; /* Remove default list styling */
+    }
+
+    nav menu li:last-child {
+        margin-right: 0; /* Remove margin from the last item */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Smaller header size on mobile screens */
+        display: none; /* Optional: hides the header text on very small screens */
+    }
+
+    header img {
+        display: none; /* Hide logo on small screens */
+    }
+}
