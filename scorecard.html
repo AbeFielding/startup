@@ -29,6 +29,7 @@
         
         <!-- Section for live score updates (initially hidden) -->
         <section class="live-score" id="live-score" style="display: none;">
+            <h2 class="current-round-scores">Current Round Scores</h2>
             <div class="players-list scrollable">
                 <div class="player">
                     <span class="player-name">Player 1</span>
@@ -82,8 +83,61 @@
                 </div>
             </div>
     
-            <!-- Horizontal bar below player scores -->
             <div class="horizontal-bar"></div>
+
+            <div id="hole-info" style="display: none;">
+                <div class="hole-nav">
+                    <button id="prev-hole" class="arrow-btn">&#9664;</button>
+                    <h2 id="current-hole">Hole 1</h2>
+                    <button id="next-hole" class="arrow-btn">&#9654;</button>
+                </div>
+                <p id="hole-distance">Distance: 300 ft</p>
+                <p id="hole-par">Par: 3</p>
+            </div>
+
+            <!-- Questions Section -->
+            <div class="questions-container" style="display: none;">
+                <div class="question">
+                    <label>What did you throw?</label>
+                    <select>
+                        <option value="putter">Putter</option>
+                        <option value="mid">Mid</option>
+                        <option value="fairway">Fairway</option>
+                        <option value="driver">Driver</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>What style did you throw?</label>
+                    <select>
+                        <option value="backhand">Backhand</option>
+                        <option value="forehand">Forehand</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>Where did you land?</label>
+                    <select>
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                        <option value="fairway">Fairway</option>
+                        <option value="OB">OB</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>How many putts did you attempt from C1?</label>
+                    <input type="number" min="0" placeholder="Enter number of putts" />
+                </div>
+                <div class="question">
+                    <label>How many putts did you attempt from C2?</label>
+                    <input type="number" min="0" placeholder="Enter number of putts" />
+                </div>
+                <div class="question">
+                    <label>What was your score on the hole?</label>
+                    <input type="number" placeholder="Enter score" />
+                </div>
+            </div>
+
+
             <div class="scoring-options">
                 <label for="course-select">Select Course:</label>
                 <select id="course-select">
@@ -103,13 +157,53 @@
     </main>
     
     <script>
-        // JavaScript to toggle visibility
+        const totalHoles = 18;
+        let currentHole = 1;
+
         document.getElementById('start-score-btn').addEventListener('click', function() {
-            // Hide the button
             this.style.display = 'none';
-            
-            // Show the live score section
             document.getElementById('live-score').style.display = 'block';
+        });
+
+        document.getElementById('begin-play-btn').addEventListener('click', function() {
+            currentHole = parseInt(document.getElementById('starting-hole').value) || 1;
+            const scoringOptions = document.querySelector('.scoring-options');
+            scoringOptions.style.display = 'none'; // Hide scoring options
+    
+            document.getElementById('hole-info').style.display = 'flex';
+    
+            // Show questions section
+            document.querySelector('.questions-container').style.display = 'block';
+    
+            updateHoleDisplay();
+        });
+
+        function updateHoleDisplay() {
+            document.getElementById('current-hole').textContent = `Hole ${currentHole}`;
+            document.getElementById('hole-distance').textContent = `Distance: ${getDistance(currentHole)} ft`;
+            document.getElementById('hole-par').textContent = `Par: ${getPar(currentHole)}`;
+        }
+
+        function getDistance(hole) {
+            return 300 + (hole - 1) * 20;
+        }
+
+        function getPar(hole) {
+            return hole % 2 === 0 ? 4 : 3;
+        }
+
+        document.getElementById('prev-hole').addEventListener('click', function() {
+            if (currentHole > 1) {
+                currentHole--;
+                updateHoleDisplay();
+            }
+        });
+
+        document.getElementById('next-hole').addEventListener('click', function() {
+            if (currentHole < totalHoles) {
+                currentHole++;
+                updateHoleDisplay();
+            }
         });
     </script>
 
