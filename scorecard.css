@@ -65,6 +65,7 @@ main {
     transform: translate(-50%, -50%); /* Center it exactly */
 }
 
+/* Button styling */
 .score-btn {
     padding: 15px 30px;
     background-color: #002E5D;
@@ -76,27 +77,25 @@ main {
     transition: background-color 0.3s ease;
 }
 
-.score-btn:hover {
-    background-color: #004494; /* Darker blue on hover */
-}
-
+/* Override flex for live-score to place it in the top-left */
 .live-score {
-    width: 100%; /* Ensure it uses full width */
-    margin-top: 0; /* Keep it at the top */
-    margin-left: 0; /* Keep it aligned to the left */
-    display: block; /* Reset grid alignment */
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    display: block;
 }
 
 .players-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0px;
-    width: 100vw;
-    align-self: flex-start; /* Align to the top-left */
+    gap: 10px;
+    width: 100%;
+    align-self: flex-start; /* Ensure player scores are top-left */
+    margin-top: 20px; /* Add space below the button */
 }
 
 .scrollable {
-    max-height: 200px; /* Default: display around 3 players */
+    max-height: 200px; /* Adjust to control the visible height */
     overflow-y: scroll;
 }
 
@@ -108,17 +107,7 @@ main {
     display: block;
 }
 
-.horizontal-bar {
-    position: relative;      /* Use relative positioning */
-    left: 0;                 /* Align to the left */
-    right: 0;                /* Align to the right */
-    width: 100%;             /* Full width */
-    height: 5px;             /* Bar thickness */
-    background-color: black; /* Black color */
-    margin: 20px 0;          /* Spacing above and below the bar */
-    border: none;            /* No border */
-    z-index: 1;              /* Ensure it appears above other elements */
-}
+
 
 /* Footer */
 footer {
@@ -134,6 +123,18 @@ footer {
     bottom: 0; /* Position it at the bottom */
     left: 0; /* Position it to the left */
     right: 0; /* Position it to the right */
+}
+
+.horizontal-bar {
+    position: relative;      /* Use relative positioning */
+    left: 0;                 /* Align to the left */
+    right: 0;                /* Align to the right */
+    width: 100%;             /* Full width */
+    height: 5px;             /* Bar thickness */
+    background-color: black; /* Black color */
+    margin: 20px 0;          /* Spacing above and below the bar */
+    border: none;            /* No border */
+    z-index: 1;              /* Ensure it appears above other elements */
 }
 
 /* Footer logo */
@@ -186,7 +187,6 @@ footer {
 
 @media (max-width: 600px) {
     .scrollable {
-        max-height: 70px;
-        max-width: 100vw; /* Adjust to show only 1 player at a time */
+        max-height: 70px; /* Adjust to show only 1 player at a time */
     }
 }
