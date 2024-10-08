@@ -199,7 +199,7 @@ main {
 
 
 .questions-container {
-    max-height: 300px; /* Adjust this value based on your needs */
+    calc(100vh - 335px); /* Adjust this value based on your needs */
     overflow-y: auto;
     padding: 10px;
 }
