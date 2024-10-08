@@ -1,118 +1,108 @@
-body {
-    margin: 0; /* Remove default body margin */
+
+html, body {
+    margin: 0;
+    height: 100%;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
+}
+
+body {
+    display: flex; 
+    flex-direction: column; 
 }
 
 header {
-    background-color: #002E5D; /* Navy blue */
+    background-color: #002E5D;
     color: white;
-    padding: 10px; /* Adjust padding as needed */
-    display: flex; /* Use flex for layout */
-    justify-content: space-between; /* Space between title and nav */
-    align-items: center; /* Align items in the center */
-    position: fixed; /* Fix the header to the top */
-    top: 0; /* Position it at the top */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-    z-index: 1000; /* Ensure it stays above other content */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: 1000; 
 }
 
-nav menu {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Display navigation items inline */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
 }
 
-nav menu li {
-    margin-right: 10px; /* Space between menu items */
+nav ul li {
+    margin-right: 10px;
 }
 
-nav menu li a {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.leaderboard-main {
+    flex: 1;
+    padding: 20px;
+    margin-top: 60px; 
+    margin-bottom: 40px; 
+    background-image: url('Backgroundimg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
-    position: fixed; /* Fix the footer to the bottom */
+    position: fixed; 
     bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #002E5D; /* Navy blue */
+    left: 0; 
+    right: 0; 
+    background-color: #002E5D;
     color: white;
     text-align: center;
-    padding: 0px; /* Add padding for footer content */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between text and logo */
-    align-items: center; /* Center vertically */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-logo {
-    max-width: 40px; /* Set a small size for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-left: auto; /* Push logo to the right */
+    max-width: 40px;
+    height: auto;
 }
 
-/* Main styles specifically for index.html */
-.index-main {
-    height: 100vh; /* Full viewport height */
-    width: 100%; /* Full width */
-    padding: 0; /* No padding */
-    margin: 0; /* No margin */
-    display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    position: relative; /* Allow for absolutely positioning the image */
-}
 
-.index-main img {
-    object-fit: cover; /* Ensure the image covers the whole area */
-    width: 100%; /* Ensure the image takes the full width */
-    height: 100vh; /* Ensure the image takes the full viewport height */
-    position: absolute; /* Position the image absolutely to fill the space */
-    top: 0; /* Start at the top */
-    left: 0; /* Start at the left */
-    z-index: -1; /* Ensure the image is behind the header and footer */
-}
-
-/* Media query for button responsiveness */
-@media (max-width: 600px) {
-    .score-btn {
-        padding: 10px 20px; /* Adjust button padding */
-        font-size: 1rem; /* Adjust button font size */
-    }
-}
-
-/* Media queries for responsiveness */
 @media (max-width: 600px) {
     header {
-        flex-direction: column; /* Stack header elements on small screens */
-        align-items: flex-start; /* Align items to the left */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    nav menu {
-        flex-direction: row; /* Ensure menu items are in a row */
-        flex-wrap: nowrap; /* Prevent wrapping to the next line */
-        justify-content: center; /* Center the menu items */
-        padding: 0; /* Removes default padding */
-        margin: 0; /* Removes default margin */
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
     }
 
-    nav menu li {
-        margin-right: 10px; /* Space between menu items */
-        list-style-type: none; /* Remove default list styling */
+    nav ul li {
+        margin-right: 10px;
     }
 
-    nav menu li:last-child {
-        margin-right: 0; /* Remove margin from the last item */
+    nav ul li:last-child {
+        margin-right: 0;
     }
 
     header h1 {
-        font-size: 1.5rem; /* Smaller header size on mobile screens */
-        display: none; /* Optional: hides the header text on very small screens */
+        font-size: 1.5rem; 
+        display: none; 
     }
 
     header img {
-        display: none; /* Hide logo on small screens */
+        display: none; 
+    }
+
+    .leaderboard-main {
+        padding: 10px;
     }
 }
