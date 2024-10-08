@@ -70,29 +70,37 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: 30px;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 10px;
+    max-width: 500px; /* Increased width */
 }
 
 .scoring-options label {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-.scoring-options select,
-.scoring-options input {
-    margin-bottom: 15px;
-    padding: 8px;
+.scoring-options select {
+    padding: 10px;
+    margin-bottom: 20px;
     width: 100%;
-    max-width: 250px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 .scoring-options button {
-    align-self: center;
+    padding: 15px;
+    background-color: #002E5D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.scoring-options button:hover {
+    background-color: #004080;
 }
 
 /* Footer */
@@ -149,6 +157,7 @@ footer {
     }
 
     .scoring-options {
-        padding: 10px;
+        padding: 15px;
+        max-width: 100%; /* Adjust for smaller screens */
     }
 }
