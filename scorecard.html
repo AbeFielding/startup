@@ -9,111 +9,23 @@
 </head>
 <body>
     <header>
-        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
-        <h1>BYU Disc Golf Scores and Stats</h1>
+        <h1>BYU Disc Golf</h1>
         <nav>
             <menu>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="leaderboard.html">Leaderboard</a></li>
                 <li><a href="stats.html">Stats</a></li>
-                <li><a href="scorecard.html">Start a round</a></li>
+                <li><a href="scorecard.html">Keep Score</a></li>
                 <li><a href="login.html">Login</a></li>
             </menu>
         </nav>
-        <hr />
     </header>
 
-    <hr />
-
-    <main>
-        <h2>Select Course</h2>
-        <select id="course" onchange="onCourseChange(this)">
-            <option value="Hospital">Utah State Hospital</option>
-            <option value="Jolley's">Jolley's Ranch</option>
-            <option value="Dragonfly">Dragonfly</option>
-            <option value="Art Dye">Art Dye</option>
-        </select>
-
-        <div id="weather-info">
-            <h2>Current Weather</h2>
-            <p id="temperature">Temperature: 0 °C</p>
-            <p id="wind">Wind: 0 mph</p>
-        </div>
-        
-        <h2>Scorecard</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Hole</th>
-                    <th>Distance (ft)</th>
-                    <th>Par</th>
-                    <th>Your Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 18 holes -->
-                <script>
-                    const holes = [...Array(18).keys()].map(i => `
-                        <tr>
-                            <td>${i + 1}</td>
-                            <td id="distance-${i + 1}">300</td>
-                            <td>3</td>
-                            <td><input type="number" min="0" max="10" placeholder="Score" /></td>
-                        </tr>
-                    `).join('');
-                    document.write(holes);
-                </script>
-            </tbody>
-        </table>
-    </main>
-
     <footer>
-        <hr />
         <span>Created by Abe Field</span>
         <br />
         <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" class="footer-logo" />
     </footer>
-
-    <script>
-        const weatherKey = '3837f7f4bd1f4e4bb7e02213242809';
-        const courses = {
-            "Hospital": "Provo, Utah",
-            "Jolley's": "Springville, Utah",
-            "Dragonfly": "Lehi, Utah",
-            "Art Dye": "American Fork, Utah"
-        };
-
-        function fetchWeather(course) {
-            const location = courses[course];
-            const url = `http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${location}`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('temperature').innerText = `Temperature: ${data.current.temp_c} °C`;
-                    document.getElementById('wind').innerText = `Wind: ${data.current.wind_mph} mph`;
-                })
-                .catch(error => console.error('Error fetching weather data:', error));
-        }
-
-        function onCourseChange(selectElement) {
-            const selectedCourse = selectElement.value;
-            fetchWeather(selectedCourse);
-            updateDistances(selectedCourse);
-        }
-
-        function updateDistances(course) {
-            const distances = {
-                "Hospital": 300,
-                "Jolley's": 300,
-                "Dragonfly": 300,
-                "Art Dye": 300
-            };
-
-            for (let i = 1; i <= 18; i++) {
-                document.getElementById(`distance-${i}`).innerText = distances[course];
-            }
-        }
-    </script>
 </body>
 </html>

@@ -6,57 +6,30 @@
     <title>BYU DG Scorecard</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <script>
-        let currentImageIndex = 0;
-        const images = [
-            'slideimg1.jpg',
-            'slideimg2.jpg',
-            'slideimg3.jpg',
-            'slideimg4.jpg',
-            'slideimg5.jpg',
-            
-        ];
-
-        function changeImage() {
-            const imageElement = document.getElementById("slideshow-image");
-            imageElement.src = images[currentImageIndex];
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-        }
-
-        window.onload = function() {
-            changeImage(); 
-            setInterval(changeImage, 30000); // Change image every 30 seconds
-        };
-    </script>
 </head>
 <body>
     <header>
-        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" style="max-width: 200px; height: auto;" />
-        <h1>BYU Disc Golf Scores and Stats</h1>
+        <h1>BYU Disc Golf</h1>
         <nav>
             <menu>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="leaderboard.html">Leaderboard</a></li>
                 <li><a href="stats.html">Stats</a></li>
-                <li><a href="scorecard.html">Start a round</a></li>
+                <li><a href="scorecard.html">Keep Score</a></li>
                 <li><a href="login.html">Login</a></li>
             </menu>
         </nav>
-        <hr />
     </header>
 
     <main>
-        <!-- Slideshow for cycling through images -->
-        <div class="slideshow">
-            <img id="slideshow-image" src="" alt="Slideshow" style="max-width: 100%; height: auto;" />
-        </div>
+        <img src="Teamimg.jpg" alt="Team Image" class="full-background" />
     </main>
 
     <footer>
-        <hr />
         <span>Created by Abe Field</span>
         <br />
         <a href="https://github.com/AbeFielding/startup">GitHub Repository</a>
+        <img src="BYU_Disc_Golf_Team_logo.jpg" alt="BYU Disc Golf Team Logo" class="footer-logo" />
     </footer>
 </body>
 </html>

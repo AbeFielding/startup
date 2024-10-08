@@ -6,51 +6,123 @@ body {
 header {
     background-color: #002E5D; /* Navy blue */
     color: white;
-    padding: 20px;
-    text-align: left; /* Align text to the left */
+    padding: 5px 5px; /* Adjust padding as needed */
+    display: flex; /* Use flex for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.header-title {
+    display: flex; /* Align logo and title */
+    align-items: center; /* Center logo and title vertically */
+    margin-bottom: 0px; /* Space between title and nav */
+}
+
+header img {
+    max-width: 50px; /* Set a small size for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and title */
 }
 
 nav menu {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display navigation items inline */
 }
 
 nav menu li {
-    display: inline;
-    margin-right: 15px;
+    margin-right: 5px; /* Space between menu items */
 }
 
 nav menu li a {
-    color: white;
-    text-decoration: none;
-}
-
-hr {
-    border: 1px solid white;
-}
-
-main {
-    height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Hide overflow for the image */
-}
-
-.slideshow {
-    width: 100%;
-    height: 100%;
-}
-
-#slideshow-image {
-    width: 100%; /* Make the image fill the width */
-    height: 100%; /* Make the image fill the height */
-    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
 }
 
 footer {
     background-color: #002E5D; /* Navy blue */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 5px; /* Add padding for footer content */
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+}
+
+footer hr {
+    margin: 0; /* Remove margin from the horizontal rule */
+}
+
+/* Main styles for other pages */
+main {
+    height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow for other pages */
+}
+
+footer {
+    background-color: #002E5D; /* Navy blue */
+    color: white;
+    text-align: center;
+    padding: 10px; /* Add padding for footer content */
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between text and logo */
+    align-items: center; /* Center vertically */
+}
+
+.footer-logo {
+    max-width: 50px; /* Set a small size for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; /* Push logo to the right */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack header elements on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    nav menu {
+        flex-direction: row; /* Ensure menu items are in a row */
+        flex-wrap: nowrap; /* Prevent wrapping to the next line */
+        justify-content: center; /* Center the menu items */
+        padding: 0; /* Removes default padding */
+        margin: 0; /* Removes default margin */
+    }
+
+    nav menu li {
+        margin-right: 10px; /* Space between menu items */
+        list-style-type: none; /* Remove default list styling */
+    }
+
+    nav menu li:last-child {
+        margin-right: 0; /* Remove margin from the last item */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Smaller header size on mobile screens */
+        display: none; /* Optional: hides the header text on very small screens */
+    }
+
+    header img {
+        display: none; /* Hide logo on small screens */
+    }
+}
+
+/* General styles */
+header h1 {
+    font-size: 2.5rem; /* Adjust the size for larger screens */
 }
