@@ -43,14 +43,14 @@ footer {
     background-color: #002E5D; /* Navy blue */
     color: white;
     text-align: center;
-    padding: 10px; /* Add padding for footer content */
+    padding: 0px; /* Add padding for footer content */
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between text and logo */
     align-items: center; /* Center vertically */
 }
 
 .footer-logo {
-    max-width: 50px; /* Set a small size for the logo */
+    max-width: 40px; /* Set a small size for the logo */
     height: auto; /* Maintain aspect ratio */
     margin-left: auto; /* Push logo to the right */
 }
@@ -75,22 +75,6 @@ footer {
     top: 0; /* Start at the top */
     left: 0; /* Start at the left */
     z-index: -1; /* Ensure the image is behind the header and footer */
-}
-
-/* Button styles */
-.score-btn {
-    padding: 15px 30px; /* Button padding */
-    background-color: #002E5D; /* Navy blue background */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1.2rem; /* Increase button text size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth hover transition */
-}
-
-.score-btn:hover {
-    background-color: #004494; /* Lighter blue on hover */
 }
 
 /* Media query for button responsiveness */

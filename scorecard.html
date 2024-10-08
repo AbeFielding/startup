@@ -23,12 +23,13 @@
 
     <main class="scorecard-main">
         <!-- Button to begin keeping score -->
-        <button class="score-btn" id="start-score-btn">Begin Keeping Score</button>
+        <div class="button-container">
+            <button class="score-btn" id="start-score-btn">Begin Keeping Score</button>
+        </div>
         
         <!-- Section for live score updates (initially hidden) -->
         <section class="live-score" id="live-score" style="display: none;">
             <div class="players-list">
-                <!-- Placeholder player information -->
                 <div class="player">
                     <span class="player-name">Player 1</span>
                     <span class="player-holes">Holes Played: 18</span>
@@ -39,9 +40,7 @@
                     <span class="player-holes">Holes Played: 18</span>
                     <span class="player-score">Score: -3</span>
                 </div>
-                <!-- More players here (total of 10) -->
             </div>
-            <div class="score-top-bar"></div> <!-- Thin black bar below the players -->
         </section>
     </main>
     

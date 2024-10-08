@@ -1,74 +1,70 @@
 /* Global reset */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    min-width: 375px; /* Minimum width for smaller screens */
+    margin: 0; /* Remove default body margin */
+    font-family: Arial, sans-serif; /* Font family */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    height: 100vh; /* Full height of the viewport */
 }
 
 /* Header */
 header {
-    background-color: #002E5D;
+    background-color: #002E5D; /* Navy blue */
     color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    padding: 10px; /* Adjust padding as needed */
+    display: flex; /* Use flex for layout */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Align items in the center */
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
+/* Navigation menu */
 nav menu {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Flexbox for inline menu items */
 }
 
 nav menu li {
-    margin-right: 10px;
+    margin-right: 10px; /* Space between menu items */
 }
 
 nav menu li a {
-    color: white;
-    text-decoration: none;
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
 }
 
-/* Scorecard main section */
-.scorecard-main {
-    height: calc(100vh - 60px); /* Full viewport minus header height */
-    width: 100%;
-    margin-top: 60px; /* Offset to accommodate the fixed header */
+main {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.5); /* Slightly opaque grey */
-    box-sizing: border-box;
+    align-items: flex-start; /* Align the content to the left */
+    justify-content: flex-start; /* Align the content to the top */
+    background-color: rgba(128, 128, 128, 0.5);
     padding: 20px;
-}
-
-/* Player scores section */
-.player-scores {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for Player, Holes Played, and Score */
-    gap: 10px;
-    margin-bottom: 20px; /* Space before the bar */
-}
-
-.player-scores div {
-    text-align: center;
-    font-size: 14px;
-}
-
-/* Thin black bar */
-.black-bar {
-    height: 2px;
-    background-color: black;
     width: 100%;
-    margin-bottom: 20px; /* Space below the black bar */
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 100px;
+    min-height: calc(100vh - 100px - 30px);
+    max-width: 1200px;
+    position: relative; /* Enable absolute positioning inside */
 }
 
-/* Button styles */
+/* Button container for centering */
+.button-container {
+    position: absolute; /* Position the button independently */
+    top: 50%; /* Move it halfway down */
+    left: 50%; /* Move it halfway across */
+    transform: translate(-50%, -50%); /* Center it exactly */
+}
+
 .score-btn {
     padding: 15px 30px;
     background-color: #002E5D;
@@ -78,30 +74,88 @@ nav menu li a {
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    align-self: center; /* Center the button */
 }
 
 .score-btn:hover {
-    background-color: #004494;
+    background-color: #004494; /* Darker blue on hover */
 }
+
+.live-score {
+    width: 100%; /* Ensure it uses full width */
+    margin-top: 0; /* Keep it at the top */
+    margin-left: 0; /* Keep it aligned to the left */
+    display: block; /* Reset grid alignment */
+}
+
+.players-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+    align-self: flex-start; /* Align to the top-left */
+}
+
 
 /* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #002E5D;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex: 0 30px; /* Fixed height for footer */
+    background-color: #002E5D; /* Navy blue */
+    color: white; /* White text */
+    text-align: center; /* Center text */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
+    padding: 0px; /* Padding for footer */
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Position it to the left */
+    right: 0; /* Position it to the right */
 }
 
+/* Footer logo */
 .footer-logo {
-    max-width: 50px;
-    height: auto;
-    margin-left: auto;
+    max-width: 40px; /* Maximum width for logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; /* Push logo to the right */
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack header elements on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    nav menu {
+        flex-direction: row; /* Ensure menu items are in a row */
+        flex-wrap: nowrap; /* Prevent wrapping to the next line */
+        justify-content: center; /* Center the menu items */
+        padding: 0; /* Removes default padding */
+        margin: 0; /* Removes default margin */
+    }
+
+    nav menu li {
+        margin-right: 10px; /* Space between menu items */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Smaller header size on mobile screens */
+        display: none; /* Optional: hides the header text on very small screens */
+    }
+}
+
+/* For wider screens, let the main stretch fully */
+@media (min-width: 1200px) {
+    main {
+        max-width: none; /* Remove width limit */
+        width: 100vw; /* Ensure it spans the full viewport width */
+    }
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 600px) {
+    main {
+        margin-top: 38px; /* Adjust this value to match the smaller header height */
+        min-height: calc(100vh - 38px - 30px); /* Adjust height based on smaller header */
+    }
 }
