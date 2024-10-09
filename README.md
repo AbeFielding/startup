@@ -58,3 +58,14 @@ For this deliverable I created the structure of my site using HTML
 - [x] **Login Form/Database** - The main page contains a login input placeholder. The score card page shows a potential way to input scores.
 - [x] **Real-Time Communication** - The leaderboard includes placeholders for displaying real-time player scores and information.
 - [x] **Weather API Integration** -placeholder made. integrated the weather API now as the idea of doing it later stressed me. It currently works in vs code live but not the actual site.
+
+## CSS Deliverable
+
+For this deliverable, I styled the application into its final appearance.
+
+ - [x] **Header, Footer, and Main Content Body** - The header and footer are styled to match the overall theme of the site using BYU colors and the team logo. The "Keep Score" page has a different background as the logo was intrusive.
+ - [x] **Navigation Elements** - Navigation links are now resizable and adjust to screen size changes. The "Keep Score" page also features a smaller header on smaller screens to optimize space.
+ - [x] **Responsive Design** - The application is responsive on standard screen sizes, providing a smooth experience across most devices. Some layout issues may occur at extreme window sizes.
+ - [x] **Application Elements** - Clutter was minimized by ensuring good use of whitespace, keeping the focus on the content.
+ - [x] **Consistent Fonts** - All text content follows a consistent font scheme to ensure uniformity.
+ - [x] **Application Images** - Currently, the team logo is the only image used. Future plans may include adding a slideshow of team photos to the homepage.
