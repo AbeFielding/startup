@@ -1,7 +1,7 @@
 // src/views/Leaderboard.jsx
 
 import React from 'react';
-import '../assets/leaderboard.css'; // Import the CSS file
+import '../styles/leaderboard.css'; // Import the CSS file
 
 const Leaderboard = () => {
   return (

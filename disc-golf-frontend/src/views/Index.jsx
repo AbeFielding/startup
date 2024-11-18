@@ -1,6 +1,6 @@
 // src/views/Index.jsx
 import React from 'react';
-import '../assets/index.css';  // Link the CSS file
+import '../styles/index.css';  // Link the CSS file
 
 const Index = () => {
   return (

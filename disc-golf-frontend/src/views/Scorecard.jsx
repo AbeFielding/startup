@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../assets/scorecard.css';
+import '../styles/scorecard.css';
 
 // Function to fetch weather data based on course selection
 async function fetchWeather(course) {
