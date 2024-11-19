@@ -1,166 +1,82 @@
-/* Global styles for all pages */
-html, body {
-    margin: 0;
-    height: 100%; /* Allow the body to take full height of the viewport */
+/* Container styles */
+.leaderboard-container {
+    padding: 20px;
+    text-align: center;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-body {
-    display: flex; /* Use flexbox for body */
-    flex-direction: column; /* Stack header, main, and footer */
-}
-
-header {
-    background-color: #002E5D; /* Navy blue */
-    color: white;
+    padding-left:   10vw;
+  }
+  
+  .leaderboard-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  /* Dropdown styles */
+  .dropdown-container {
+    margin-bottom: 20px;
+  }
+  
+  #course-select {
     padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+  
+  /* Leaderboard list styles */
+  .leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  /* Individual leaderboard item */
+  .leaderboard-item {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avatar-container {
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+  
+  .avatar-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Player info */
+  .player-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: fixed; /* Fix the header to the top */
-    top: 0; /* Position it at the top */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-    z-index: 1000; /* Ensure it stays above other content */
-}
+    flex: 1;
+  }
+  
+  .player-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .player-score {
+    font-size: 1rem;
+    color: #555;
+  }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.leaderboard-main {
-    flex: 1; /* Allow the main content to grow and take available space */
-    padding: 20px; /* Add padding */
-    margin-top: 60px; /* Adjust for header height */
-    margin-bottom: 40px; /* Adjust for footer height */
-    background-image: url('Backgroundimg.png'); /* Your background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex; /* Use flex for layout */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center items horizontally */
-}
-
-.leaderboard {
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding inside the leaderboard */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    width: 300px; /* Fixed width */
-    text-align: left; /* Align text to the left */
-    margin-top: 20px; /* Space from the top */
-}
-
-.leaderboard h2 {
-    text-align: center; /* Center the title */
-    margin: 0 0 15px 0; /* Space below the title */
-}
-
-.leaderboard ol {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
-}
-
-.leaderboard li {
-    display: flex; /* Use flex for layout */
-    justify-content: space-between; /* Space between elements */
-    margin: 10px 0; /* Space between leaderboard items */
-}
-
-.place {
-    font-weight: bold; /* Bold text for place */
-}
-
-/* Gold, Silver, and Bronze styles */
-.leaderboard li:nth-child(1) .place {
-    color: gold; /* Gold for 1st place */
-}
-
-.leaderboard li:nth-child(2) .place {
-    color: silver; /* Silver for 2nd place */
-}
-
-.leaderboard li:nth-child(3) .place {
-    color: #cd7f32; /* Bronze for 3rd place (copper color) */
-}
-
-.name {
-    flex-grow: 1; /* Allow name to grow */
-    text-align: center; /* Center the name */
-}
-
-.score {
-    font-style: italic; /* Italicize the score */
-}
-
-footer {
-    position: fixed; /* Fix the footer to the bottom */
-    bottom: 0; /* Position it at the bottom */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-    background-color: #002E5D; /* Navy blue */
-    color: white;
-    text-align: center;
-    padding: 10px; /* Add padding for footer content */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between text and logo */
-    align-items: center; /* Center vertically */
-}
-
-.footer-logo {
-    max-width: 40px; /* Set a small size for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-left: auto; /* Push logo to the right */
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column; /* Stack header elements on small screens */
-        align-items: flex-start; /* Align items to the left */
+  @media (max-width: 768px) {
+    .leaderboard-container {
+      padding-left: 37vw; /* Reduced padding on mobile screens */
     }
-
-    nav ul {
-        flex-direction: row; /* Ensure menu items are in a row */
-        justify-content: center; /* Center the menu items */
-    }
-
-    nav ul li {
-        margin-right: 10px; /* Space between menu items */
-    }
-
-    nav ul li:last-child {
-        margin-right: 0; /* Remove margin from the last item */
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* Smaller header size on mobile screens */
-        display: none; /* Optional: hides the header text on very small screens */
-    }
-
-    header img {
-        display: none; /* Hide logo on small screens */
-    }
-
-    .leaderboard-main {
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    .leaderboard {
-        width: 100%; /* Full width on small screens */
-        padding: 10px; /* Reduce padding */
-    }
-}
+  }
