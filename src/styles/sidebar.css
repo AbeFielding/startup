@@ -1,0 +1,110 @@
+/* sidebar.css */
+
+/* Base styles for the sidebar */
+.sidebar {
+    height: 100vh; /* Full viewport height */
+    width: 250px;  /* Default width for expanded state */
+    background: #002E5D;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds the viewport */
+}
+
+/* When collapsed */
+.sidebar.collapsed {
+    width: 60px;  /* Default width when collapsed */
+}
+
+/* Sidebar menu styles */
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align the icons from the top */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Sidebar item styles */
+.sidebar li {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center; /* Center icons */
+    align-items: center;
+    width: 100%;
+}
+
+/* Sidebar button styles */
+.sidebar button {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+    color: #333;
+    border: 2px solid #333;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Make sidebar smaller when on mobile */
+    .sidebar {
+        width: 200px;  /* Default width for mobile when expanded */
+    }
+
+    /* Sidebar collapsed state on mobile */
+    .sidebar.collapsed {
+        width: 48px;  /* Smaller collapsed width for mobile */
+    }
+
+    /* Ensure icons are centered when collapsed */
+    .sidebar.collapsed ul {
+        display: flex;
+        flex-direction: column;  /* Keep the items vertical */
+        justify-content: center;  /* Center the icons */
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .sidebar button {
+        padding: 0px;
+    }
+
+    .sidebar img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Center the icons when sidebar is collapsed */
+    .sidebar.collapsed li {
+        justify-content: center;
+    }
+
+    /* Hide text when collapsed on mobile */
+    .sidebar.collapsed li span {
+        display: none;
+    }
+
+    /* Show text when sidebar is not collapsed */
+    .sidebar li span {
+        display: inline-block;
+        margin-left: 10px; /* Adjust margin for spacing */
+    }
+}

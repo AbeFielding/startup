@@ -1,0 +1,93 @@
+/* Index.css */
+.homepage {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Neutral background color */
+    color: #333; /* Dark text for good contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space the content evenly from top to bottom */
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding-left:   100px; /* Default padding for regular screens */
+    margin: 0;
+  }
+
+  
+  @media (max-width: 768px) {
+    .homepage {
+      padding-left: 100px; /* Reduced padding on mobile screens */
+    }
+  }
+  
+  .homepage-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Darker color for the title */
+  }
+  
+  .intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555; /* Slightly lighter color for intro text */
+  }
+  
+  .location-selector {
+    margin-bottom: 20px;
+  }
+  
+  select {
+    padding: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .weather-card {
+    background-color: #ffffff; /* White background for the card */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%; /* Make the card stretch horizontally */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .weather-location {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .weather-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .weather-icon {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .weather-details {
+    text-align: left;
+  }
+  
+  .weather-details p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .loading {
+    font-size: 1.5rem;
+    color: #ffcc00;
+  }
+
+
+  

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/sidebar.css';  // Importing the sidebar CSS
 
 // Import icons from the assets/icons folder
 import menuIcon from '../assets/icons/menu.png';
@@ -18,44 +19,32 @@ const items = [
 ];
 
 const Sidebar = () => {
-  // State to manage the sidebar's visibility (collapsed or expanded)
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Toggle function to collapse/expand the sidebar
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
   return (
-    <div
-      style={{
-        width: isCollapsed ? '60px' : '250px', // Adjust width based on collapsed state
-        background: '#002E5D',
-        padding: '20px',
-        boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
-        transition: 'width 0.3s ease', // Smooth transition for collapsing/expanding
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: isCollapsed ? 'center' : 'flex-start', // Align items in the center when collapsed, left-align when expanded
-      }}
-    >
+    <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       {/* Menu Button */}
       <button
         onClick={toggleSidebar}
         style={{
           marginBottom: '10px',
           padding: '10px',
-          background: '#333',
-          color: '#ffff',
-          border: 'none',
+          background: '#fff',
+          color: '#333',
+          border: '2px solid #333',
           cursor: 'pointer',
           width: '100%',
+          borderRadius: '5px',
         }}
       >
         <img
           src={menuIcon}
           alt="Menu"
-          style={{ width: '24px', height: '24px' }} // Size the icon appropriately
+          style={{ width: '24px', height: '24px' }}
         />
       </button>
 
@@ -67,8 +56,8 @@ const Sidebar = () => {
             style={{
               marginBottom: '15px',
               display: 'flex',
-              justifyContent: isCollapsed ? 'center' : 'flex-start', // Left-align when expanded, center when collapsed
-              alignItems: 'center', // Vertically center icons and text
+              justifyContent: isCollapsed ? 'center' : 'flex-start',
+              alignItems: 'center',
               width: '100%',
             }}
           >
@@ -79,8 +68,8 @@ const Sidebar = () => {
                 color: '#ffff',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: isCollapsed ? 'center' : 'flex-start', // Center when collapsed, left-align when expanded
-                width: '100%', // Full width when collapsed
+                justifyContent: isCollapsed ? 'center' : 'flex-start',
+                width: '100%',
               }}
             >
               <img
@@ -89,10 +78,10 @@ const Sidebar = () => {
                 style={{
                   width: '24px',
                   height: '24px',
-                  marginRight: isCollapsed ? '0' : '10px', // Adjust spacing when collapsed
+                  marginRight: isCollapsed ? '0' : '10px',
                 }}
               />
-              {!isCollapsed && item.title} {/* Show title only when sidebar is expanded */}
+              {!isCollapsed && item.title}
             </Link>
           </li>
         ))}
