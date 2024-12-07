@@ -59,7 +59,7 @@
 @media (max-width: 768px) {
     /* Make sidebar smaller when on mobile */
     .sidebar {
-        width: 200px;  /* Default width for mobile when expanded */
+        width: 140px;  /* Default width for mobile when expanded */
     }
 
     /* Sidebar collapsed state on mobile */

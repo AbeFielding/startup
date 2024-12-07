@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/sidebar.css';  // Importing the sidebar CSS
+import '../styles/sidebar.css'; // Importing the sidebar CSS
 
 // Import icons from the assets/icons folder
 import menuIcon from '../assets/icons/menu.png';
@@ -20,10 +20,23 @@ const items = [
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
@@ -86,6 +99,39 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      {/* GitHub Link */}
+      <div
+        style={{
+          marginTop: isMobile ? '525px' : '600px', // Adjust margin dynamically
+          paddingBottom: '10px',
+          width: '100%',
+          textAlign: isCollapsed ? 'center' : 'left',
+        }}
+      >
+        <a
+          href="https://github.com/AbeFielding/startup"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: '#ffff',
+            textDecoration: 'none',
+            fontSize: '14px',
+          }}
+        >
+          {!isCollapsed && 'GitHub'}
+          <img
+            src="https://github.githubassets.com/favicons/favicon.svg"
+            alt="GitHub"
+            style={{
+              width: '24px',
+              height: '24px',
+              marginLeft: isCollapsed ? '0' : '10px',
+              verticalAlign: 'middle',
+            }}
+          />
+        </a>
+      </div>
     </div>
   );
 };

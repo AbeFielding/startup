@@ -22,8 +22,7 @@ const Index = () => {
 
   return (
     <div className="homepage">
-      <h1 className="homepage-title">Weather Dashboard</h1>
-      <p className="intro-text">Select a location to view the current weather.</p>
+      <h1 className="homepage-title">Home</h1>
 
       <div className="location-selector">
         <label htmlFor="location">Choose a location: </label>
