@@ -1,326 +1,129 @@
-/* Global reset */
-body {
-    display: flex;
-    flex-direction: column; /* Stack header, main, and footer vertically */
-    min-width: 375px; /* Minimum width for smaller screens */
-    margin: 0; /* Remove default body margin */
-    font-family: Arial, sans-serif; /* Font family */
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    height: 100vh; /* Full height of the viewport */
-}
-
-/* Header */
-header {
-    background-color: #002E5D; /* Navy blue */
-    color: white;
-    padding: 10px; /* Adjust padding as needed */
-    display: flex; /* Use flex for layout */
-    justify-content: space-between; /* Space between title and nav */
-    align-items: center; /* Align items in the center */
-    position: fixed; /* Fix the header to the top */
-    top: 0; /* Position it at the top */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-    z-index: 1000;
-    margin-bottom: 5px;
-}
-
-/* Navigation menu */
-nav menu {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Flexbox for inline menu items */
-}
-
-nav menu li {
-    margin-right: 10px; /* Space between menu items */
-}
-
-nav menu li a {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
-}
-
-main {
-    flex: 1;
+/* Scorecard.css */
+.scorecard {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align the content to the left */
-    justify-content: flex-start; /* Align the content to the top */
-    background-color: rgba(128, 128, 128, 0.5);
-    padding: 8px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    margin-top: 80px;
-    min-height: calc(100vh - 100px - 30px);
-    max-width: 1200px;
-    position: relative; /* Enable absolute positioning inside */
-}
-
-/* Button container for centering */
-.button-container {
-    position: absolute; /* Position the button independently */
-    top: 50%; /* Move it halfway down */
-    left: 50%; /* Move it halfway across */
-    transform: translate(-50%, -50%); /* Center it exactly */
-}
-
-/* Button styling */
-.score-btn {
-    padding: 15px 30px;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-left: 100px; /* Push content to the right to avoid sidebar */
+  }
+  
+  .scorecard-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    margin-left: 0px;
+  }
+  
+  .scorecard-intro {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+    margin-left: 0px;
+  }
+  
+  .start-button {
+    padding: 10px 20px;
+    font-size: 1rem;
     background-color: #002E5D;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Override flex for live-score to place it in the top-left */
-.live-score {
-    width: 100%;
-    margin-top: 0px;
-    margin-left: 0;
-    display: block;
-}
-
-.players-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Changed from 200px to 150px */
-    gap: 10px;
-    width: 100%;
-    align-self: flex-start;
-    margin-top: 20px; /* Add space below the button */
-}
-
-.scrollable {
-    max-height: 200px; /* Adjust to control the visible height */
-    overflow-y: scroll;
-}
-
-.player {
-    margin: 10px 0;
-}
-
-.player-name, .player-holes, .player-score {
-    display: block;
-}
-
-.current-round-scores {
-    font-size: 1.5rem; /* Adjust font size as needed */
-    margin-bottom: 5px; /* Decrease the space below the header */
-    color: #002E5D; /* Match your theme color */
-    text-align: left; /* Center the text */
-}
-
-.scoring-options {
-    display: flex; /* Flexbox for layout */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the start (left) */
-    margin-top: 20px; /* Space above the scoring options */
-    padding: 20px; /* Padding for aesthetics */
-    background-color: rgba(255, 255, 255, 0.9); /* Light background for visibility */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.scoring-options label {
-    margin-bottom: 5px; /* Space below labels */
-    font-weight: bold; /* Make labels bold */
-}
-
-.scoring-options select,
-.scoring-options input {
-    margin-bottom: 15px; /* Space below inputs */
-    padding: 10px; /* Increased padding for better usability */
-    width: 100%; /* Full width for inputs */
-    max-width: 300px; /* Set a max width for better aesthetics */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-}
-
-.scoring-options button {
-    align-self: center; /* Center the button */
-    padding: 10px 20px; /* Padding for button */
-    margin-top: 10px; /* Space above the button */
-    font-size: 1.1rem; /* Slightly larger font size for the button */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s ease; /* Transition effect */
-}
-
-.scoring-options button:hover {
-    background-color: #004494; /* Darker blue on hover */
-}
-
-#hole-info {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    margin-top: 0px; /* Space above the hole info */
-    padding: 0px; /* Reduced padding for a thinner appearance */
-    border-radius: 0px; /* Rounded corners */
-    box-shadow: none; /* Remove shadow for a cleaner look */
-}
-
-/* Navigation buttons for hole change */
-.hole-nav {
-    display: flex; /* Flexbox for horizontal layout */
-    align-items: center; /* Center items vertically */
-}
-
-.arrow-btn {
-    background: none; /* Remove background */
-    border: none; /* Remove border */
-    font-size: 1.5rem; /* Font size for arrows */
-    color: #002E5D; /* Color for arrows */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: color 0.3s ease; /* Transition for color */
-}
-
-.arrow-btn:hover {
-    color: #004494; /* Darker color on hover */
-}
-
-/* Hole information text styling */
-#hole-info h2 {
-    margin: 0px; /* Space around the hole number */
-    font-size: 1.5rem; /* Adjust font size for better appearance */
-    color: #002E5D; /* Navy blue for text color */
-}
-
-#hole-info p {
-    margin: 0px 0; /* Space above and below paragraph text */
-    font-size: 1rem; /* Standard font size for distance and par */
-    color: #333; /* Dark gray for better readability */
-}
-
-
-.questions-container {
-    max-height: calc(100vh - 335px); /* Adjust this value based on your needs */
-    overflow-y: auto;
+    margin-left: 0px;
+  }
+  
+  .start-button:hover {
+    background-color: #002E5D;
+  }
+  
+  .score-keeping p {
+    font-weight: bold;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #2c3e50; /* Make the color consistent with your theme */
+    margin: 0;
+  }
+  
+  .course-dropdown,
+  input[type="number"],
+  select {
     padding: 10px;
-}
-
-/* Question styling */
-.question {
-    margin-bottom: 15px; /* Space between questions */
-}
-
-.questions-container label {
-    font-weight: bold; /* Make labels bold */
-    margin-bottom: 5px; /* Space below labels */
-    display: block; /* Block display for labels */
-}
-
-.questions-container select {
-    padding: 8px; /* Padding for select dropdown */
-    width: 100%; /* Full width for selects */
-    max-width: 300px; /* Limit width for aesthetics */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-}
-
-/* Footer */
-footer {
-    flex: 0 30px; /* Fixed height for footer */
-    background-color: #002E5D; /* Navy blue */
-    color: white; /* White text */
-    text-align: center; /* Center text */
-    display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Center items vertically */
-    padding: 0px; /* Padding for footer */
-    position: fixed; /* Fix the footer to the bottom */
-    bottom: 0; /* Position it at the bottom */
-    left: 0; /* Position it to the left */
-    right: 0; /* Position it to the right */
-}
-
-.horizontal-bar {
-    position: relative;      /* Use relative positioning */
-    left: 0;                 /* Align to the left */
-    right: 0;                /* Align to the right */
-    width: 100%;             /* Full width */
-    height: 5px;             /* Bar thickness */
-    background-color: black; /* Black color */
-    margin: 20px 0;          /* Spacing above and below the bar */
-    border: none;            /* No border */
-    z-index: 1;              /* Ensure it appears above other elements */
-}
-
-/* Footer logo */
-.footer-logo {
-    max-width: 40px; /* Maximum width for logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-left: auto; /* Push logo to the right */
-}
-
-/* Media Queries for responsive design */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column; /* Stack header elements on small screens */
-        align-items: flex-start; /* Align items to the left */
-    }
-
-    nav menu {
-        flex-direction: row; /* Ensure menu items are in a row */
-        flex-wrap: nowrap; /* Prevent wrapping to the next line */
-        justify-content: center; /* Center the menu items */
-        padding: 0; /* Removes default padding */
-        margin: 0; /* Removes default margin */
-    }
-
-    nav menu li {
-        margin-right: 10px; /* Space between menu items */
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* Smaller header size on mobile screens */
-        display: none; /* Optional: hides the header text on very small screens */
-    }
-}
-
-/* For wider screens, let the main stretch fully */
-@media (min-width: 1200px) {
-    main {
-        max-width: none; /* Remove width limit */
-        width: 100vw; /* Ensure it spans the full viewport width */
-    }
-}
-
-/* Media Queries for smaller screens */
-@media (max-width: 600px) {
-    main {
-        margin-top: 25px; /* Adjust this value to match the smaller header height */
-        min-height: calc(100vh - 38px - 30px); /* Adjust height based on smaller header */
-    }
-}
-
-@media (max-width: 600px) {
-    .scrollable {
-        max-height: 70px; 
-        max-width: 100vw;/* Adjust to show only 1 player at a time */
-    }
-}
-
-@media (max-width: 600px) {
-    .current-round-scores {
-        font-size: 1.2rem; /* Smaller font size on small screens */
-        margin-bottom: 0px; /* Adjust margin if needed */
-    }
-}
-
-@media (max-width: 400px) {
-    .current-round-scores {
-        font-size: 1rem; /* Even smaller font size on very small screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .questions-container {
-        max-height: calc(100vh - 335px); /* Adjust 150px as needed based on footer size */
-    }
-}
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .course-dropdown {
+    margin-left: 0px;
+  }
+  
+  .course-dropdown:focus,
+  input[type="number"]:focus,
+  select:focus {
+    border-color: #002E5D; /* Highlight border when focused */
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  .scorecard-confirmation {
+    text-align: center;
+    margin: 0 auto; /* Ensure it's centered */
+  }
+  
+  .scorecard-confirmation table {
+    margin: 10px auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px; /* Constrain width */
+  }
+  
+  .scorecard-confirmation th,
+  .scorecard-confirmation td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center; /* Center the text in the cells */
+  }
+  
+  .scorecard-confirmation th {
+    background-color: #f2f2f2;
+  }
+  
+  .statistics-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .stat-item {
+    display: inline-block;
+    margin: 20px;
+    width: 120px; /* Width for progress bars */
+  }
+  
+  .stat-item h3 {
+    margin-bottom: 10px; /* Spacing between heading and progress bar */
+  }
+  
+  .stat-item .CircularProgressbar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .go-back-button {
+    order: 1; /* Go Back button on the left */
+  }
+  
+  .next-hole-button {
+    order: 2; /* Next Hole button on the right */
+  }

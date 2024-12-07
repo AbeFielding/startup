@@ -70,7 +70,7 @@ const Leaderboard = () => {
     <div className="leaderboard-container">
       <h1 className="leaderboard-title">Leaderboard</h1>
       <div className="dropdown-container">
-        <label htmlFor="course-select">Select Criteria:</label>
+        <label htmlFor="course-select">Select Stat:</label>
         <select
           id="course-select"
           value={selectedCourse}
