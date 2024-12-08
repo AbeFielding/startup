@@ -1,0 +1,42 @@
+.stats-container {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-left: 100px; /* Shift content 100px to the right */
+}
+
+.stats-container h1 {
+    color: #002e5d;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stats-container p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.course-dropdown {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+}
+
+.course-dropdown:focus {
+    border-color: #002e5d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
