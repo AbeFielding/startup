@@ -10,6 +10,7 @@ const Scorecard = () => {
   const [allLandingZones, setAllLandingZones] = useState(Array(18).fill([{ zone: '', askedPutt: false }]));
   const [allMadePutts, setAllMadePutts] = useState(Array(18).fill([]));
   const [askingPutt, setAskingPutt] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
 
   const handleStartScore = () => {
     if (selectedCourse) {
@@ -54,21 +55,21 @@ const Scorecard = () => {
     setAllLandingZones(updatedAllLandingZones);
 
     const newMadePutts = [...allMadePutts];
-    newMadePutts[holeNumber - 1] = madePutt.slice(0, index + 1); // Reset madePutt state to match newLandingZones
+    newMadePutts[holeNumber - 1] = newMadePutts.slice(0, index + 1); // Reset madePutt state to match newLandingZones
     setAllMadePutts(newMadePutts);
   };
 
   const handlePuttChange = (event, index) => {
     const newMadePutts = [...allMadePutts[holeNumber - 1]];
     newMadePutts[index] = event.target.value === 'yes';
-    
+
     const updatedAllMadePutts = [...allMadePutts];
     updatedAllMadePutts[holeNumber - 1] = newMadePutts;
     setAllMadePutts(updatedAllMadePutts);
 
     if (event.target.value === 'no') {
       setAskingPutt(true);
-      const nextZone = (allLandingZones[holeNumber - 1][index].zone === 'C1') ? 'C2' : 'C1';
+      const nextZone = allLandingZones[holeNumber - 1][index].zone === 'C1' ? 'C2' : 'C1';
       const newLandingZones = [...allLandingZones[holeNumber - 1], { zone: nextZone, askedPutt: false }];
       const updatedAllLandingZones = [...allLandingZones];
       updatedAllLandingZones[holeNumber - 1] = newLandingZones;
@@ -78,11 +79,26 @@ const Scorecard = () => {
     }
   };
 
+  const handleConfirmScores = () => {
+    setShowSummary(true);
+  };
+
+  const handleSubmitScores = () => {
+    alert('Scorecard submitted!');
+    setShowSummary(false);
+    setScoreStarted(false);
+    setHoleNumber(1);
+    setScores(Array(18).fill(''));
+    setDiscsUsed(Array(18).fill(''));
+    setAllLandingZones(Array(18).fill([{ zone: '', askedPutt: false }]));
+    setAllMadePutts(Array(18).fill([]));
+  };
+
   return (
     <div className="scorecard">
       <h1 className="scorecard-title">Scorecard</h1>
 
-      {!scoreStarted && (
+      {!scoreStarted && !showSummary && (
         <div className="course-selector">
           <select
             id="course"
@@ -99,11 +115,13 @@ const Scorecard = () => {
         </div>
       )}
 
-      {!scoreStarted ? (
+      {!scoreStarted && !showSummary && (
         <button className="start-button" onClick={handleStartScore}>
           Begin Keeping Score
         </button>
-      ) : (
+      )}
+
+      {scoreStarted && !showSummary && (
         <div className="score-keeping">
           <p>
             <strong>
@@ -159,11 +177,11 @@ const Scorecard = () => {
                 setHoleNumber(holeNumber + 1);
                 setAskingPutt(false);
               } else {
-                alert('You finished the course!');
+                handleConfirmScores();
               }
             }}
           >
-            Next Hole
+            {holeNumber < 18 ? 'Next Hole' : 'Review Score'}
           </button>
 
           <button
@@ -176,6 +194,31 @@ const Scorecard = () => {
           >
             Go Back
           </button>
+        </div>
+      )}
+
+      {showSummary && (
+        <div className="score-summary">
+          <h2>Score Summary</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Hole</th>
+                <th>Distance (ft)</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scores.map((score, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>Placeholder</td>
+                  <td>{score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button onClick={handleSubmitScores}>Submit Scorecard</button>
         </div>
       )}
     </div>
