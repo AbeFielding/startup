@@ -9,47 +9,87 @@
     height: 100vh;
     margin: 0;
     padding-left: 100px; /* Push content to the right to avoid sidebar */
-  }
-  
-  .scorecard-title {
+}
+
+.scorecard-title {
     font-size: 2rem;
     color: #2c3e50;
     margin-bottom: 1rem;
     margin-left: 0px;
-  }
-  
-  .scorecard-intro {
+}
+
+.scorecard-intro {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 1rem;
     margin-left: 0px;
-  }
-  
-  .start-button {
+}
+
+.start-button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #002E5D;
+    background-color: #002e5d;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 0px;
-  }
-  
-  .start-button:hover {
-    background-color: #002E5D;
-  }
-  
-  .score-keeping p {
+}
+
+.start-button:hover {
+    background-color: #004080; /* Darker blue on hover */
+}
+
+/* Increase size of hole score */
+.score-display {
+    font-size: 2em; /* Increase font size */
+    font-weight: bold;
+}
+
+/* Style the + and - buttons */
+.score-button {
+    font-size: 1.2em; /* Make buttons smaller */
+    width: 16px; /* Adjust width */
+    height: 16px; /* Adjust height */
+    background-color: transparent; /* Transparent background */
+    border: 1px solid #333; /* Add border */
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 0; /* Remove padding */
+}
+
+.score-button img {
+    width: 16px; /* Adjust width as needed */
+    height: 16px; /* Adjust height as needed */
+}
+
+.score-button:hover {
+    background-color: #f0f0f0; /* Add a hover effect */
+}
+
+/* Smaller button style for + and - buttons */
+.small-btn {
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    padding: 2px 5px;
+}
+
+.course-dropdown,
+.start-button {
+    font-size: 1.2em;
+}
+
+.score-keeping p {
     font-weight: bold;
     font-size: 1.5rem; /* Adjust size as needed */
     color: #2c3e50; /* Make the color consistent with your theme */
     margin: 0;
-  }
-  
-  .course-dropdown,
-  input[type="number"],
-  select {
+}
+
+.course-dropdown,
+input[type="number"],
+select {
     padding: 10px;
     font-size: 1rem;
     background-color: #fff;
@@ -58,72 +98,156 @@
     border: 1px solid #ccc;
     margin: 10px 0;
     width: 200px; /* Adjust width as needed */
-  }
-  
-  .course-dropdown {
+}
+
+.course-dropdown {
     margin-left: 0px;
-  }
-  
-  .course-dropdown:focus,
-  input[type="number"]:focus,
-  select:focus {
-    border-color: #002E5D; /* Highlight border when focused */
+}
+
+.course-dropdown:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #002e5d; /* Highlight border when focused */
     outline: none;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-  }
-  
-  .scorecard-confirmation {
+}
+
+/* Summary Section */
+.score-summary {
+    width: 95%; /* Increased width slightly from 90% to 95% */
+    max-width: 950px; /* Increased max-width from 800px to 900px */
+    margin: 20px 0;
+    text-align: center;
+}
+
+.score-summary h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Fixed alignment for summary columns */
+.summary-columns {
+    display: flex;
+    justify-content: space-around; /* Space between columns */
+    align-items: center; /* Vertically center text and content */
+    text-align: center; /* Center text within the container */
+}
+
+.column {
+    width: 45%; /* Keep the column size consistent */
+    display: flex; /* Enable flexbox for centering */
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-table th,
+.summary-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.summary-table th {
+    background-color: #002e5d;
+    color: white;
+    text-transform: uppercase;
+}
+
+.summary-table td {
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+.summary-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #002e5d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #004080; /* Darker blue on hover */
+}
+
+.scorecard-confirmation {
     text-align: center;
     margin: 0 auto; /* Ensure it's centered */
-  }
-  
-  .scorecard-confirmation table {
-    margin: 10px auto;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 600px; /* Constrain width */
-  }
-  
-  .scorecard-confirmation th,
-  .scorecard-confirmation td {
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center; /* Center the text in the cells */
-  }
-  
-  .scorecard-confirmation th {
-    background-color: #f2f2f2;
-  }
-  
-  .statistics-section {
+}
+
+.scorecard-confirmation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.scorecard-confirmation ul li {
+    font-size: 1rem;
+    margin: 5px 0;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+
+.scorecard-confirmation button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #002e5d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.scorecard-confirmation button:hover {
+    background-color: #004080; /* Darker blue on hover */
+}
+
+.statistics-section {
     text-align: center;
     margin: 20px 0;
-  }
-  
-  .stat-item {
+}
+
+.stat-item {
     display: inline-block;
     margin: 20px;
     width: 120px; /* Width for progress bars */
-  }
-  
-  .stat-item h3 {
+}
+
+.stat-item h3 {
     margin-bottom: 10px; /* Spacing between heading and progress bar */
-  }
-  
-  .stat-item .CircularProgressbar {
+}
+
+.stat-item .CircularProgressbar {
     width: 100px;
     height: 100px;
-  }
-  
-  .button-container {
+}
+
+.button-container {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .go-back-button {
+}
+
+.go-back-button {
     order: 1; /* Go Back button on the left */
-  }
-  
-  .next-hole-button {
+}
+
+.next-hole-button {
     order: 2; /* Next Hole button on the right */
-  }
+}
