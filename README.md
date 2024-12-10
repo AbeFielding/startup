@@ -69,3 +69,20 @@ For this deliverable, I styled the application into its final appearance.
  - [x] **Application Elements** - Clutter was minimized by ensuring good use of whitespace, keeping the focus on the content.
  - [x] **Consistent Fonts** - All text content follows a consistent font scheme to ensure uniformity.
  - [x] **Application Images** - Currently, the team logo is the only image used. Future plans may include adding a slideshow of team photos to the homepage.
+
+ ## React Deliverable
+
+For this deliverable, I completed the conversion of the app to React
+
+- [x] **Bundled with Vite** - The app is bundled using Vite.
+- [x] **Components** - The app includes multiple React components:
+  - **Sidebar** - Collapsible sidebar with navigation links.
+  - **Home** - Landing page introducing the app and shows the weather called with api.
+  - **Login** - Placeholder login page (authentication to be added).
+  - **Scorecard** - Track disc golf scores.
+  - **Leaderboard** - Display rankings based on user scores.
+  - **Stats** - Placeholder page for future user stats.
+- [x] **Router** - react router handles navigation between Home, Login, Scorecard, Leaderboard, and Stats pages.
+- [x] **Hooks** - useState and useEffect hooks are used for managing state (e.g., sidebar toggle, screen resize handling).
+- [x] **GitHub Link** - A link to the GitHub repository is provided.
+  **(as a note, this is being developed for use on mobile phones on the course. As such the desktop view is not being focused on at the moment)**
