@@ -86,3 +86,18 @@ For this deliverable, I completed the conversion of the app to React
 - [x] **Hooks** - useState and useEffect hooks are used for managing state (e.g., sidebar toggle, screen resize handling).
 - [x] **GitHub Link** - A link to the GitHub repository is provided.
   **(as a note, this is being developed for use on mobile phones on the course. As such the desktop view is not being focused on at the moment)**
+
+## Service deliverable
+
+
+For this deliverable, I added backend endpoints for serving disc golf-related data, including scores, player stats, and leaderboard rankings.
+
+- [x] **Node.js/Express HTTP service** - Set up an Express server to handle API requests for score data, player stats, and leaderboard data.
+- [x] **Static middleware for frontend** - Used Express static middleware to serve frontend files when deployed.
+- [x] **Calls to third-party endpoints** - Integrated with a third-party weather API to fetch current weather data and display it on the Home page.
+- [x] **Backend service endpoints** - Created endpoints for retrieving:
+  - **Scores** - Static score endpoint to fetch scores.
+  - **Stats** - Endpoint to fetch player statistics based on selected player, course, and stat type.
+  - **Leaderboard** - Endpoint to fetch leaderboard rankings for different courses.
+- [x] **Frontend calls service endpoints** - Used the fetch function to call backend service endpoints for scores, stats, and leaderboard data.
+  **(as a note, this is being developed for use on mobile phones on the course. As such the desktop view is not being focused on at the moment)**
