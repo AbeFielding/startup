@@ -12,7 +12,7 @@ const Index = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`);
+      const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
