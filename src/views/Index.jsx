@@ -6,7 +6,7 @@ const Index = () => {
   const [location, setLocation] = useState('Provo');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const API_KEY = '3837f7f4bd1f4e4bb7e02213242809';
+  const API_KEY = 'e5bfdf74f10e426284e25822241112';
 
   const fetchWeather = async (location) => {
     setLoading(true);

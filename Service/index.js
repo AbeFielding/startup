@@ -5,12 +5,12 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 app.use(express.static('public'));
 
-// Static score endpoint
+
 app.get('/api/scores', (req, res) => {
   res.json({ score: 100 });
 });
 
-// Stats data for players (static example)
+
 const statsData = {
   player1: {
     dragonfly: { forehand: 5, backhand: 6, c1Putting: 10, girC1: 8, c2Putting: 12, girC2: 15 },
@@ -32,7 +32,7 @@ app.get('/api/stats', (req, res) => {
   }
 });
 
-// Leaderboard data for different courses
+
 const leaderboardData = {
   Dragonfly: [
     { name: 'Alice', score: 300, avatar: '/path/to/avatar1.jpg' },
@@ -48,10 +48,8 @@ const leaderboardData = {
     { name: 'Will', score: 320, avatar: '/path/to/avatar4.jpg' },
     { name: 'Victor', score: 310, avatar: '/path/to/avatar5.jpg' },
   ],
-  // Add more courses as necessary...
 };
 
-// New endpoint for leaderboard data
 app.get('/api/leaderboard', (req, res) => {
   const { course } = req.query;
 
