@@ -7,7 +7,7 @@ const Scorecard = () => {
   const [scoreStarted, setScoreStarted] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState('');
   const [holeNumber, setHoleNumber] = useState(1);
-  const [scores, setScores] = useState(Array(18).fill(0)); // Initialize scores to 0
+  const [scores, setScores] = useState(Array(18).fill(0));
   const [discsUsed, setDiscsUsed] = useState(Array(18).fill(''));
   const [throwStyles, setThrowStyles] = useState(Array(18).fill(''));
   const [allLandingZones, setAllLandingZones] = useState(Array(18).fill([{ zone: '', askedPutt: false }]));
@@ -67,7 +67,7 @@ const Scorecard = () => {
     updatedAllLandingZones[holeNumber - 1] = newLandingZones;
     setAllLandingZones(updatedAllLandingZones);
     const newMadePutts = [...allMadePutts];
-    newMadePutts[holeNumber - 1] = newMadePutts.slice(0, index + 1); // Reset madePutt state to match newLandingZones
+    newMadePutts[holeNumber - 1] = newMadePutts.slice(0, index + 1); 
     setAllMadePutts(newMadePutts);
   };
 
@@ -93,16 +93,46 @@ const Scorecard = () => {
     setShowSummary(true);
   };
 
-  const handleSubmitScores = () => {
-    alert('Scorecard submitted!');
-    setShowSummary(false);
-    setScoreStarted(false);
-    setHoleNumber(1);
-    setScores(Array(18).fill(0));
-    setDiscsUsed(Array(18).fill(''));
-    setThrowStyles(Array(18).fill(''));
-    setAllLandingZones(Array(18).fill([{ zone: '', askedPutt: false }]));
-    setAllMadePutts(Array(18).fill([]));
+  const handleSubmitScores = async () => {
+    // Prepare the score data to be sent to the backend
+    const scoreData = {
+      selectedCourse,
+      scores,
+      discsUsed,
+      throwStyles,
+      allLandingZones,
+      allMadePutts
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/scorecard', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(scoreData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit scorecard');
+      }
+
+      const data = await response.json();
+      console.log('Scorecard submitted successfully:', data);
+
+      // Clear state after successful submission
+      setShowSummary(false);
+      setScoreStarted(false);
+      setHoleNumber(1);
+      setScores(Array(18).fill(0));
+      setDiscsUsed(Array(18).fill(''));
+      setThrowStyles(Array(18).fill(''));
+      setAllLandingZones(Array(18).fill([{ zone: '', askedPutt: false }]));
+      setAllMadePutts(Array(18).fill([]));
+    } catch (error) {
+      console.error('Error submitting scorecard:', error);
+      alert('Failed to submit scorecard. Please try again.');
+    }
   };
 
   return (
@@ -164,18 +194,23 @@ const Scorecard = () => {
           </div>
           {allLandingZones[holeNumber - 1].map((landingZone, index) => (
             <div key={index}>
-              <label>Where Did You Land: </label>
-              <select value={landingZone.zone} onChange={(e) => handleLandingZoneChange(e, index)}>
-                <option value="">Select Landing Zone</option>
+              <label>Landing Zone {index + 1}: </label>
+              <select
+                value={landingZone.zone}
+                onChange={(e) => handleLandingZoneChange(e, index)}
+              >
+                <option value="">Select Zone</option>
                 <option value="Fairway">Fairway</option>
                 <option value="C1">C1</option>
                 <option value="C2">C2</option>
               </select>
               {landingZone.askedPutt && (
                 <div>
-                  <label>Did you make your putt? </label>
-                  <select value={allMadePutts[holeNumber - 1][index] ? 'yes' : 'no'} onChange={(e) => handlePuttChange(e, index)}>
-                    <option value="">Select</option>
+                  <label>Made Putt?</label>
+                  <select
+                    onChange={(e) => handlePuttChange(e, index)}
+                    value={allMadePutts[holeNumber - 1][index] ? 'yes' : 'no'}
+                  >
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </select>
@@ -183,84 +218,27 @@ const Scorecard = () => {
               )}
             </div>
           ))}
-          <button
-            onClick={() => {
-              if (holeNumber < 18) {
-                setHoleNumber(holeNumber + 1);
-                setAskingPutt(false);
-              } else {
-                handleConfirmScores();
-              }
-            }}
-          >
-            {holeNumber < 18 ? 'Next Hole' : 'Review Scorecard'}
+          <div className="buttons">
+            <button onClick={() => setHoleNumber(holeNumber - 1)} disabled={holeNumber === 1}>
+              Previous Hole
+            </button>
+            <button onClick={() => setHoleNumber(holeNumber + 1)} disabled={holeNumber === 18}>
+              Next Hole
+            </button>
+          </div>
+          <button className="confirm-scores" onClick={handleConfirmScores}>
+            Submit Scores
           </button>
-          <button
-  onClick={() => {
-    if (holeNumber > 1) {
-      setHoleNumber(holeNumber - 1);
-      setAskingPutt(false);
-    }
-  }}
->
-  Go Back
-</button>
-</div>
-)}
-
-{showSummary && (
-  <div className="score-summary">
-    <h2>Summary</h2>
-    <div className="summary-columns">
-      <div className="column">
-        <table className="summary-table">
-          <thead>
-            <tr>
-              <th>Hole</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {scores.slice(0, 9).map((score, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="column">
-        <table className="summary-table">
-          <thead>
-            <tr>
-              <th>Hole</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {scores.slice(9, 18).map((score, index) => (
-              <tr key={index}>
-                <td>{index + 10}</td>
-                <td>{score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        </div>
+      )}
+      {showSummary && (
+        <div className="summary">
+          <h2>Summary</h2>
+          <button onClick={handleSubmitScores}>Confirm and Submit</button>
+        </div>
+      )}
     </div>
-    {/* Total Score */}
-    <div className="total-score">
-      <strong>Total:</strong> {scores.reduce((acc, score) => acc + score, 0)}
-    </div>
-    <button onClick={handleSubmitScores} className="submit-button">
-      Submit
-    </button>
-  </div>
-)}
-</div>
   );
 };
 
 export default Scorecard;
-
